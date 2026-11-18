@@ -1,0 +1,10 @@
+// Cloudflare Workers config: a static site, no server code.
+// Everything in ./public is served as-is at echowrought.com.
+{
+  "name": "echowrought-site",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page"
+  }
+}
