@@ -16,6 +16,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+  // Show the intro gate on a visitor's first visit (or with ?intro in the address). Runs before paint so the page never flashes.
+  (function () {
+    try {
+      var force = /[?&]intro\b/.test(location.search);
+      if (force || !localStorage.getItem('ew-gate-seen')) document.documentElement.classList.add('gate-on');
+    } catch (e) {}
+  })();
+</script>
 <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
@@ -33,6 +42,22 @@
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/></g></symbol>
 </svg>
+
+
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Welcome to Echowrought Games">
+  <img class="gate-bg" src="/assets/hero.jpg" alt="">
+  <div class="gate-shade" aria-hidden="true"></div>
+  <p class="gate-kicker">ECHOWROUGHT GAMES</p>
+  <div class="gate-seal-wrap">
+    <svg class="gate-ring" viewBox="0 0 300 300" aria-hidden="true" fill="none" stroke="#C9A66B"><circle cx="150" cy="150" r="146" stroke-opacity=".25" stroke-dasharray="1 7"/><circle cx="150" cy="150" r="132" stroke-opacity=".4"/><circle cx="150" cy="150" r="140" stroke="#8A70D6" stroke-opacity=".5"/><circle cx="150" cy="10" r="3" fill="#C9BBF5" stroke="none"/><path d="M150 4 L150 20 M150 280 L150 296 M4 150 L20 150 M280 150 L296 150" stroke-opacity=".6"/></svg>
+    <button class="gate-seal" id="gate-seal" type="button" aria-label="Break the seal and enter"><img src="/assets/seal.jpg" alt=""></button>
+  </div>
+  <div class="gate-copy">
+    <p class="gate-tagline">Old worlds reborn. New legends forged.</p>
+    <p class="gate-hint">Break the seal to enter</p>
+  </div>
+  <button class="gate-skip" id="gate-skip" type="button">Skip intro →</button>
+</div>
 
 <header class="site-header">
   <nav class="site-nav" aria-label="Main">

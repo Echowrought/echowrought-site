@@ -190,6 +190,62 @@ a:hover { color: var(--parchment); }
   html { scroll-behavior: auto; }
 }
 
+
+/* ---------- intro gate (first visit only) ---------- */
+.gate { display: none; }
+.gate-on .gate { display: flex; }
+.gate-on body { overflow: hidden; }
+.gate {
+  position: fixed; inset: 0; z-index: 100;
+  flex-direction: column; align-items: center; justify-content: center; gap: 40px;
+  padding: 64px 24px; text-align: center; background: #070A12;
+  transition: opacity .9s ease .35s, visibility 0s linear 1.25s;
+}
+.gate-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(3px) brightness(.55); }
+.gate-shade { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(7,10,18,.2) 0%, rgba(7,10,18,.85) 75%); }
+.gate-kicker, .gate-seal-wrap, .gate-copy { position: relative; }
+.gate-kicker { margin: 0; font-family: var(--display); font-size: 13px; letter-spacing: .5em; color: var(--gold); animation: gateFade 1.6s ease-out both; }
+.gate-seal-wrap { width: min(320px, 78vw); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; }
+.gate-ring { position: absolute; inset: 0; width: 100%; height: 100%; animation: gateSpin 60s linear infinite; }
+.gate-seal {
+  width: 75%; aspect-ratio: 1; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer;
+  animation: gatePulse 3.2s ease-in-out infinite; transition: transform .35s;
+}
+.gate-seal:hover { transform: scale(1.05); }
+.gate-seal img {
+  width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+  -webkit-mask-image: radial-gradient(circle closest-side, #000 82%, transparent 98%);
+          mask-image: radial-gradient(circle closest-side, #000 82%, transparent 98%);
+}
+.gate-copy { display: flex; flex-direction: column; align-items: center; gap: 12px; animation: gateFade 1.6s ease-out .6s both; }
+.gate-tagline { margin: 0; font-family: var(--serif); font-style: italic; font-size: clamp(24px, 3vw, 34px); color: var(--parchment); }
+.gate-hint { margin: 0; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--violet-text); }
+.gate-skip {
+  position: absolute; right: 24px; bottom: 20px; min-height: 44px; padding: 0 12px;
+  background: none; border: 0; font: 13px var(--sans); letter-spacing: .1em; color: var(--muted); cursor: pointer;
+}
+.gate-skip:hover { color: var(--parchment); }
+/* breaking the seal */
+.gate.opening { opacity: 0; visibility: hidden; pointer-events: none; }
+.gate.opening .gate-seal { animation: gateBreak .9s ease-in forwards; }
+.gate.opening .gate-ring { animation: gateRingOut .9s ease-in forwards; }
+.gate.opening .gate-copy, .gate.opening .gate-kicker, .gate.opening .gate-skip { transition: opacity .4s; opacity: 0; }
+@keyframes gateFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes gateSpin { to { transform: rotate(360deg); } }
+@keyframes gatePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,166,107,.45), 0 0 60px rgba(201,166,107,.25); }
+  50% { box-shadow: 0 0 0 18px rgba(201,166,107,0), 0 0 110px rgba(201,166,107,.45); }
+}
+@keyframes gateBreak {
+  0% { transform: scale(1); filter: brightness(1); }
+  30% { transform: scale(.94); filter: brightness(1.6) drop-shadow(0 0 40px rgba(201,187,245,.9)); }
+  100% { transform: scale(2.4); opacity: 0; filter: brightness(2.2) drop-shadow(0 0 80px rgba(201,166,107,.9)); }
+}
+@keyframes gateRingOut { to { transform: scale(1.8) rotate(40deg); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .gate { transition: none; }
+}
+
 /* small screens */
 @media (max-width: 720px) {
   .site-nav { padding: 14px 20px; }
