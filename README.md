@@ -6,9 +6,11 @@ The website for **Echowrought Games**. It's a plain static site: HTML, CSS and a
 public/            everything that goes live
   index.html       the homepage
   404.html         the "page not found" page
+  maintenance.html the "Down for Maintenance" page
   css/site.css     all styles (colours and fonts are at the top)
   js/site.js       tabs + scroll fade-ins
   assets/          images, favicon, share image
+src/worker.js      shows the maintenance page when switched on
 wrangler.jsonc     Cloudflare settings (serves ./public)
 ```
 
@@ -19,6 +21,15 @@ wrangler.jsonc     Cloudflare settings (serves ./public)
 3. When it's merged into `main`, Cloudflare publishes it to echowrought.com automatically.
 
 Nobody can push straight to `main`. Every change needs the owner's approval first.
+
+## Maintenance mode
+
+In the Cloudflare dashboard, open the `echowrought-site` Worker → **Settings → Variables and Secrets** and set a text variable named `maintenance`:
+
+- `true` → every page shows the "Down for Maintenance" screen (HTTP 503).
+- `false` (or not set) → the site works as normal.
+
+Saving the variable redeploys the Worker, so it takes effect within seconds. Deploys from `main` keep whatever value is set there.
 
 ## Contributing (for helpers)
 
