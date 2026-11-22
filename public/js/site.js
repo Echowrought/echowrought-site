@@ -151,3 +151,18 @@
   }, { rootMargin: '-30% 0px -60% 0px' });
   Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
 })();
+
+// Discord: live member count from the public invite (hidden if it can't be read)
+(function () {
+  var out = document.getElementById('discord-count');
+  if (!out || !window.fetch) return;
+  fetch('https://discord.com/api/v10/invites/Z5Pf8exufw?with_counts=true')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d || !d.approximate_member_count) return;
+      var fmt = function (n) { return n.toLocaleString('en-US'); };
+      out.innerHTML = '<b>' + fmt(d.approximate_member_count) + '</b> members · <b>' + fmt(d.approximate_presence_count || 0) + '</b> online now';
+      out.hidden = false;
+    })
+    .catch(function () {});
+})();

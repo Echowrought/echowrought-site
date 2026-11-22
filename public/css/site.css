@@ -411,3 +411,50 @@ a:hover { color: var(--parchment); }
   .hd-lore { font-size: 15.5px; }
   .hd-tiers { padding-top: 24px; }
 }
+
+/* ---------- The Immortalized ---------- */
+.hall-hero { text-align: center; }
+.hall-count { margin: 22px 0 0; font-size: 14px; letter-spacing: .2em; text-transform: uppercase; color: var(--violet-text); }
+.hall-count b { font-family: var(--display); font-size: 22px; letter-spacing: 0; color: var(--gold); margin-right: 4px; }
+.hall-filter { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 34px; }
+.hall-filter button { background: transparent; border: 1px solid var(--line); color: var(--muted); font: 500 13px var(--sans); letter-spacing: .06em; padding: 8px 16px; border-radius: 999px; cursor: pointer; transition: all .2s; }
+.hall-filter button:hover { color: var(--parchment); }
+.hall-filter button.on { border-color: var(--gold); color: var(--parchment); background: rgba(201,166,107,.08); }
+.hall-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; }
+.hall-card { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--panel); transition: transform .3s ease, border-color .3s, box-shadow .3s; }
+.hall-card[hidden] { display: none; }
+.hall-art { aspect-ratio: 4 / 5; overflow: hidden; }
+.hall-art img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; transition: transform .6s ease; }
+.hall-info { position: absolute; left: 0; right: 0; bottom: 0; padding: 48px 16px 16px; display: flex; flex-direction: column; gap: 2px;
+  background: linear-gradient(180deg, transparent, rgba(11,15,23,.88) 45%, rgba(11,15,23,.97)); }
+.hall-hero-name { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--violet-text); }
+.hall-player { font-family: var(--display); font-weight: 600; font-size: 21px; letter-spacing: .03em; color: var(--parchment); overflow-wrap: anywhere; }
+.hall-sub { font-size: 12px; color: var(--muted); }
+.hall-card.claimed { border-color: rgba(201,166,107,.45); }
+.hall-card.claimed .hall-player { color: var(--gold); text-shadow: 0 0 18px rgba(201,166,107,.35); }
+.hall-card.claimed:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 0 32px rgba(201,166,107,.25), 0 18px 40px rgba(0,0,0,.45); }
+.hall-card.claimed:hover img { transform: scale(1.05); }
+.hall-card.open img { filter: grayscale(1) brightness(.38) contrast(.9); }
+.hall-card.open .hall-player { color: rgba(230,217,184,.45); font-style: italic; font-family: var(--serif); font-weight: 500; font-size: 20px; }
+.hall-card.open:hover img { filter: grayscale(.6) brightness(.55); }
+.accolades { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+.accolade { position: relative; padding: 28px 24px 24px; border-radius: 12px; border: 1px solid rgba(138,112,214,.35);
+  background: radial-gradient(ellipse at 50% 0%, rgba(90,75,138,.28), rgba(15,21,34,.9) 70%); text-align: center; display: flex; flex-direction: column; gap: 8px; }
+.accolade::before { content: ""; width: 10px; height: 10px; margin: 0 auto 6px; transform: rotate(45deg); background: var(--violet-glow); box-shadow: 0 0 16px var(--violet-glow); }
+.accolade-title { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--violet-soft); }
+.accolade-name { font-family: var(--display); font-weight: 600; font-size: 24px; color: var(--gold); overflow-wrap: anywhere; }
+.accolade-note { margin: 0; font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--moonlit); line-height: 1.4; }
+@media (max-width: 560px) { .hall-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .hall-player { font-size: 16px; } .hall-info { padding: 36px 10px 10px; } }
+
+/* ---------- Credits strip ---------- */
+.credits { padding: 90px 32px; border-top: 1px solid var(--line); }
+.credits .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 48px; align-items: start; }
+.credits-groups { display: grid; gap: 30px; }
+.credits h3 { margin: 0 0 12px; font-size: 11px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--violet-text); }
+.credit-names { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.credit-names li { padding: 9px 16px; border: 1px solid var(--line); border-radius: 999px; font-family: var(--display); font-size: 15px; letter-spacing: .04em; color: var(--parchment); background: rgba(21,34,56,.4); }
+.credit-names li.lead { border-color: rgba(201,166,107,.55); color: var(--gold); }
+.credits-hall { display: inline-flex; margin-top: 22px; }
+@media (max-width: 860px) { .credits .wrap { grid-template-columns: 1fr; gap: 28px; } .credits { padding: 64px 20px; } }
+.discord-count { font-size: 14px; color: var(--muted); }
+.discord-count b { color: var(--parchment); }
