@@ -390,3 +390,24 @@ a:hover { color: var(--parchment); }
   .pn-nav { position: static; flex-direction: row; flex-wrap: wrap; gap: 6px; border-left: 0; }
   .pn-nav a { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 11px; margin: 0; }
 }
+
+/* ---------- Hero detail (Heroes tab) ---------- */
+.hero-detail { position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 56px 26px 30px; box-sizing: border-box;
+  background: radial-gradient(ellipse at 50% 30%, #2b2350 0%, #141529 55%, var(--void) 100%); animation: hd-in .35s ease; }
+.hero-detail[hidden] { display: none; }
+@keyframes hd-in { from { opacity: 0; transform: scale(.985); } to { opacity: 1; transform: none; } }
+.hd-back { position: absolute; left: 18px; top: 16px; background: rgba(11,15,23,.5); border: 1px solid var(--line); color: var(--moonlit); font: 500 13px var(--sans); padding: 7px 14px; border-radius: 999px; cursor: pointer; transition: border-color .2s, color .2s; }
+.hd-back:hover, .hd-back:focus-visible { border-color: var(--gold); color: var(--parchment); }
+.hd-group { margin: 0; text-align: center; font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: var(--violet-text); }
+.hd-name { margin: 0; text-align: center; font-family: var(--display); font-weight: 600; font-size: 30px; letter-spacing: .06em; color: var(--parchment); text-shadow: 0 0 24px rgba(138,112,214,.45); }
+.hd-tiers { padding-top: 34px; }
+.hd-lore { margin: 4px auto 0; max-width: 470px; text-align: center; font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.45; color: var(--moonlit); }
+.hd-meta { margin: 0; text-align: center; font-size: 13px; color: var(--muted); }
+.hd-meta b { color: var(--gold); font-weight: 600; }
+.roster-caption em { font-style: normal; color: var(--gold); }
+@media (max-width: 720px) {
+  .hero-detail { padding: 52px 12px 22px; gap: 10px; }
+  .hd-name { font-size: 22px; }
+  .hd-lore { font-size: 15.5px; }
+  .hd-tiers { padding-top: 24px; }
+}

@@ -57,8 +57,45 @@
   tilesEls.forEach(function (tile) {
     tile.addEventListener('mouseenter', function () { showHero(tile); });
     tile.addEventListener('focus', function () { showHero(tile); });
-    tile.addEventListener('click', function () { showHero(tile); });
+    tile.addEventListener('click', function () { showHero(tile); openHero(tile.dataset.name); });
   });
+
+  // Hero detail: three ascensions, tier titles and a line of lore
+  var heroData = {};
+  try { heroData = JSON.parse((document.getElementById('hero-data') || {}).textContent || '{}'); } catch (e) {}
+  var detail = document.getElementById('hero-detail');
+  var lastTile = null;
+  function $(id) { return document.getElementById(id); }
+  function openHero(name) {
+    var d = heroData[name];
+    if (!d || !detail) return;
+    lastTile = document.activeElement;
+    $('hd-group').textContent = d.group;
+    $('hd-name').textContent = d.name || name;
+    for (var i = 1; i <= 3; i++) {
+      var img = $('hd-t' + i);
+      img.src = '/assets/tiers/' + d.slug + '-t' + i + '.jpg';
+      img.alt = (d.name || name) + ', tier ' + i;
+      $('hd-n' + i).textContent = d.titles[i - 1] || '';
+    }
+    $('hd-lore').textContent = d.lore;
+    var meta = [];
+    if (d.role) meta.push('<b>' + d.role + '</b>');
+    if (d.sig) meta.push('Signature: <b>' + d.sig + '</b>');
+    $('hd-meta').innerHTML = meta.join(' · ');
+    detail.hidden = false;
+    detail.querySelector('.hd-back').focus({ preventScroll: true });
+  }
+  function closeHero() {
+    if (!detail || detail.hidden) return;
+    detail.hidden = true;
+    if (lastTile && lastTile.focus) lastTile.focus({ preventScroll: true });
+  }
+  if (detail) {
+    detail.querySelector('.hd-back').addEventListener('click', closeHero);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeHero(); });
+    document.querySelectorAll('[role="tab"]').forEach(function (t) { t.addEventListener('click', closeHero); });
+  }
   var roster = document.querySelector('.roster');
   if (roster) roster.addEventListener('mouseleave', function () { showHero(null); });
 
