@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Why we rebuilt the whole map in Lua — Echowrought Games</title>
-<meta name="description" content="Why CWG RPG moved from two separate maps to one Lua rebuild for version 1.30: stability, saves, and one version for everyone.">
+<meta name="description" content="Why CWG RPG was rebuilt from its old JASS code into Lua for version 1.30: stability, saves, balance and faster updates in the long run.">
 <meta name="theme-color" content="#0B0F17">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://echowrought.com/chronicle/why-we-rebuilt-cwg-in-lua/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Why we rebuilt the whole map in Lua">
-<meta property="og:description" content="Why CWG RPG moved from two separate maps to one Lua rebuild for version 1.30: stability, saves, and one version for everyone.">
+<meta property="og:description" content="Why CWG RPG was rebuilt from its old JASS code into Lua for version 1.30: stability, saves, balance and faster updates in the long run.">
 <meta property="og:image" content="https://echowrought.com/assets/og.jpg">
 <meta property="og:url" content="https://echowrought.com/chronicle/why-we-rebuilt-cwg-in-lua/">
 <meta name="twitter:card" content="summary_large_image">
@@ -60,22 +60,30 @@
     </div>
   </section>
   <article class="article-body">
-    <p class="dek">For a long time CWG lived two lives at once. Version 1.30 is where it finally becomes one game again.</p>
-    <h2>Two maps, one game</h2>
-    <p>CWG grew up on Hera, an older hosting platform for Warcraft III. When players started moving to Reforged, the map followed, and for a while that meant keeping <strong>two separate versions alive side by side</strong>: the original on Hera, and the Reforged port most of you play today.</p>
-    <p>Every fix and every feature had to be made twice. The two communities drifted to different points in the game, and some features only ever existed on one side. Meanwhile Hera has slowly wound down, and most players have already made the move to Reforged.</p>
+    <p class="dek">CWG's code has carried years of patches. Version 1.30 rebuilds it in Lua, so the next few years of updates are easier than the last few.</p>
+    <h2>The map we had</h2>
+    <p>The CWG most of you play today is built on JASS, Warcraft III's original scripting language. It has carried the game a long way, but it has also carried <strong>years of patches stacked on patches</strong>. Some parts had become hard to read even for us, and every fix risked breaking something two systems over.</p>
+    <p>For a while we were effectively working on two maps at once: keeping the live JASS map patched while the Lua rebuild took shape beside it. Every fix had to be made twice. That doesn't scale, and it isn't fun.</p>
 
-    <h2>Why not just patch it?</h2>
-    <p>The old map carries years of patches, built on Warcraft III's original scripting language. It works, but it's hard to change safely. Some problems kept coming back no matter how many times they were patched, most of all around <strong>saving and loading</strong>, where two players loading at once, or a hit landing mid-load, could desync a game or crash it.</p>
-    <p>CWG is played in very long sessions. People keep the same game running for days. In a map like that, stability isn't a nice-to-have; it's the whole foundation.</p>
+    <h2>The problems that kept coming back</h2>
+    <p>Some bugs never really went away, no matter how many times they were patched, most of all around <strong>saving and loading</strong>, where two players loading at once, or a hit landing mid-load, could desync a game or crash it.</p>
+    <p>CWG is played in very long sessions. People keep the same game running for days. In a map like that, small leaks and rare crashes add up, and stability stops being a nice-to-have and becomes the whole foundation.</p>
 
-    <h2>What Lua changes</h2>
+    <h2>Why Lua</h2>
     <ul>
-      <li><strong>One map.</strong> A single Lua codebase on the latest Reforged, so every update reaches everyone at once.</li>
-      <li><strong>Everything from both versions.</strong> Features that only ever existed on Hera are being brought across, so nobody loses anything in the merge.</li>
+      <li><strong>A modern language.</strong> Real data structures and cleaner code mean each system can live in its own place and be changed without tripping over the others.</li>
+      <li><strong>Tests before players.</strong> Changes are checked automatically before they ever reach a lobby.</li>
+      <li><strong>Balance by measurement.</strong> We built a combat simulator that runs the map's own code, so hero changes are measured against real bosses instead of guessed at.</li>
+      <li><strong>Finding leaks and slowdowns.</strong> We can see what's using memory and frame time during a long game, and fix the worst offenders directly.</li>
+      <li><strong>Community tools.</strong> Lua opens the door to libraries and effects made by the wider Warcraft III modding community.</li>
+    </ul>
+
+    <h2>What it means for you</h2>
+    <ul>
+      <li><strong>One map,</strong> so every update reaches everyone at once.</li>
       <li><strong>A new save system.</strong> Saves are rebuilt from scratch, and your existing saves carry over automatically.</li>
-      <li><strong>Nothing hidden.</strong> Every bonus and mechanic gets shown in the interface, so nobody has to guess what's affecting their hero.</li>
-      <li><strong>Settings for everyone,</strong> not just the host, including reduced effects that actually apply to every effect.</li>
+      <li><strong>Steadier games.</strong> Loads take turns instead of colliding, and the long-standing desync and crash spots have been worked through one by one.</li>
+      <li><strong>Nothing hidden.</strong> Every bonus and mechanic is shown in the interface, so nobody has to guess what's affecting their hero.</li>
     </ul>
 
     <blockquote>It's almost a whole new game under the hood, built so the next few years of updates don't fight the last few.</blockquote>
