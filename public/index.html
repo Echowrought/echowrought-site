@@ -65,10 +65,11 @@
       <svg width="40" height="40" aria-hidden="true"><use href="#citadel"/></svg>
       <span class="brand-text"><span class="brand-name">ECHOWROUGHT</span><span class="brand-sub">GAMES</span></span>
     </a>
-    <div class="nav-links">
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
       <a href="#worlds">Games</a>
       <a href="#studio">Studio</a>
-      <a href="#chronicle">Chronicle</a>
+      <a href="/chronicle/">Chronicle</a>
       <a href="#community">Community</a>
       <a class="btn btn-gold btn-sm" href="https://discord.gg/Z5Pf8exufw" rel="noopener">
         <svg width="18" height="18" aria-hidden="true"><use href="#i-chat"/></svg>Join Discord</a>
@@ -140,40 +141,119 @@
           </div>
           <p class="lead">An epic-scale RPG map for Warcraft III: Reforged, rebuilt from the ground up for its next era.</p>
           <div class="tabs" role="tablist" aria-label="About CWG RPG">
-            <button class="tab" role="tab" id="tab-world" aria-controls="panel-world" aria-selected="true">The world</button>
-            <button class="tab" role="tab" id="tab-heroes" aria-controls="panel-heroes" aria-selected="false" tabindex="-1">Heroes</button>
-            <button class="tab" role="tab" id="tab-progression" aria-controls="panel-progression" aria-selected="false" tabindex="-1">Progression</button>
+            <button class="tab" role="tab" id="tab-world" aria-controls="panel-world" aria-selected="true" data-view="world">The world</button>
+            <button class="tab" role="tab" id="tab-heroes" aria-controls="panel-heroes" aria-selected="false" tabindex="-1" data-view="heroes">Heroes</button>
+            <button class="tab" role="tab" id="tab-progression" aria-controls="panel-progression" aria-selected="false" tabindex="-1" data-view="progression">Progression</button>
           </div>
           <div class="tabpanel" role="tabpanel" id="panel-world" aria-labelledby="tab-world">
             <h3>A covenant, breaking</h3>
-            <p>Every realm had its king, and the kings held the Covenant together. One by one they fell — and as the Covenant weakens, something older stirs beneath it.</p>
+            <p>When the gods' war ended, they swore an oath — the Covenant — and set a ruler over every realm to keep it. One by one those rulers fell. As the Covenant weakens, something older stirs beneath it.</p>
+            <ul class="facts">
+              <li><strong>Seven realms,</strong> stacked one above the next. You start on the ground where the oath broke first, and climb toward the page where it was written.</li>
+              <li><strong>Every realm held the same way:</strong> a ruler at the centre, four wardens at the corners. The centres fell. The corners stopped answering.</li>
+              <li><strong>A huge world to explore,</strong> from the war-scarred streets of Ground Zero to realms you can only reach by teleport.</li>
+            </ul>
           </div>
           <div class="tabpanel" role="tabpanel" id="panel-heroes" aria-labelledby="tab-heroes" hidden>
             <h3>Twenty-eight heroes, one story</h3>
-            <p>Every hero has a place in the tale. Each ascends through three tiers by job advancement, and every tier changes how they fight.</p>
+            <p>Every hero has a place in the tale, and a role in a party. Hover or tap the roster to meet them.</p>
+            <ul class="facts">
+              <li><strong>Three tiers each.</strong> Every hero ascends twice through job advancement, and every tier changes how they fight.</li>
+              <li><strong>Real roles.</strong> Tanks and bruisers, supports, armour-shredders and pure damage dealers — built to play differently, not just hit differently.</li>
+              <li><strong>Two more to come.</strong> The cast rounds out at thirty. The last two haven't been revealed.</li>
+            </ul>
           </div>
           <div class="tabpanel" role="tabpanel" id="panel-progression" aria-labelledby="tab-progression" hidden>
             <h3>Built for the long road</h3>
-            <p>Made for marathon sessions: a Record of Deeds that grows with each hero, an account-wide collection of pets, wings and auras, and raids that reward the long haul.</p>
+            <p>CWG is played in marathon sessions. Everything is designed to reward the long haul — and every bonus is shown on screen, so nobody is left guessing.</p>
+            <ul class="facts">
+              <li><strong>Three ascensions</strong> per hero, each with its own look and skills.</li>
+              <li><strong>Record of Deeds:</strong> a slow, permanent record that grows with each hero through everything they do.</li>
+              <li><strong>The Collection:</strong> account-wide pets, wings, auras and spirits, each adding a small bonus.</li>
+              <li><strong>Raids and bosses</strong> across every realm, with a bestiary to complete and loot worth the climb.</li>
+            </ul>
           </div>
           <div class="stats">
             <div><strong>28</strong><span>Heroes</span></div>
-            <div><strong>3</strong><span>Tiers of ascension</span></div>
+            <div><strong>7</strong><span>Realms to climb</span></div>
             <div><strong>1.30</strong><span>Next release</span></div>
           </div>
           <div class="btn-row">
             <a class="btn btn-gold" href="https://cwg.echowrought.com/">Enter the world</a>
-            <!-- TODO: point this at the public Covenant Codex URL once it has one -->
-            <a class="btn btn-ghost" href="#" data-todo="codex-url"><svg width="16" height="16" aria-hidden="true"><use href="#i-book"/></svg>The Covenant Codex</a>
+            <a class="btn btn-ghost" href="https://github.com/Echowrought/CWG-Map/releases/latest" rel="noopener">Download the map</a>
           </div>
         </div>
-        <figure class="cast">
-          <img src="/assets/cast.jpg" alt="The CWG RPG cast: 28 heroes at their third tier, with two more yet to be revealed" loading="lazy">
-          <figcaption>
-            <div><strong>The Cast</strong><span>28 heroes at their final tier · 2 yet to be revealed</span></div>
-            <span class="pill">Warcraft III: Reforged</span>
-          </figcaption>
-        </figure>
+
+        <div class="stage" data-active="world">
+          <!-- The world: realm ladder over landscape art -->
+          <figure class="view view-world" aria-labelledby="tab-world">
+            <img class="view-bg" src="/assets/world.jpg" alt="" loading="lazy">
+            <figcaption class="sr-only">The seven realms of CWG, from Ground Zero up to Genesis.</figcaption>
+            <ol class="realms" aria-label="The seven realms, top to bottom">
+              <li><span class="dot" aria-hidden="true"></span><div><strong>Genesis</strong> <em>· Eden & Terra</em><p>“Older than the oath. Nothing here was ever sworn.”</p></div></li>
+              <li><span class="dot" aria-hidden="true"></span><div><strong>Primordial Realm</strong><p>“Where the Covenant was written. The sky came down to be the page.”</p></div></li>
+              <li><span class="dot" aria-hidden="true"></span><div><strong>Ancient Realm</strong> <em>· Arcadia</em><p>“Where the gods first drew breath. Nothing here is ever written down.”</p></div></li>
+              <li><span class="dot" aria-hidden="true"></span><div><strong>Upper Realm</strong> <em>· Ruins of Shattered Time</em><p>“Above the storms. The dead here were never passed on.”</p></div></li>
+              <li><span class="dot" aria-hidden="true"></span><div><strong>Middle Realm</strong> <em>· Etherion</em><p>“The realm in the middle of everything. The centre has gone quiet.”</p></div></li>
+              <li><span class="dot" aria-hidden="true"></span><div><strong>Lower Realm</strong> <em>· Leheln</em><p>“The first realm that was not ours. We called it the Otherworld.”</p></div></li>
+              <li class="start"><span class="dot" aria-hidden="true"></span><div><strong>Ground Zero</strong> <em>· The first town</em><p>“Where the war ended. The ground never healed.”</p></div></li>
+            </ol>
+            <span class="pill stage-pill">Climb from the bottom</span>
+          </figure>
+
+          <!-- Heroes: interactive roster -->
+          <figure class="view view-heroes" aria-labelledby="tab-heroes">
+            <div class="roster" role="list">
+            <button class="hero-tile" type="button" data-name="Golden Star"><img src="/assets/heroes/golden-star.jpg" alt="Golden Star" loading="lazy" width="240" height="240"><span>Golden Star</span></button>
+            <button class="hero-tile" type="button" data-name="Venomrose"><img src="/assets/heroes/venomrose.jpg" alt="Venomrose" loading="lazy" width="240" height="240"><span>Venomrose</span></button>
+            <button class="hero-tile" type="button" data-name="Galeheart"><img src="/assets/heroes/galeheart.jpg" alt="Galeheart" loading="lazy" width="240" height="240"><span>Galeheart</span></button>
+            <button class="hero-tile" type="button" data-name="Moonlit Night"><img src="/assets/heroes/moonlit-night.jpg" alt="Moonlit Night" loading="lazy" width="240" height="240"><span>Moonlit Night</span></button>
+            <button class="hero-tile" type="button" data-name="Heavenly Path"><img src="/assets/heroes/heavenly-path.jpg" alt="Heavenly Path" loading="lazy" width="240" height="240"><span>Heavenly Path</span></button>
+            <button class="hero-tile" type="button" data-name="Death Spirit"><img src="/assets/heroes/death-spirit.jpg" alt="Death Spirit" loading="lazy" width="240" height="240"><span>Death Spirit</span></button>
+            <button class="hero-tile" type="button" data-name="Soulweaver"><img src="/assets/heroes/soulweaver.jpg" alt="Soulweaver" loading="lazy" width="240" height="240"><span>Soulweaver</span></button>
+            <button class="hero-tile" type="button" data-name="Tidecaller"><img src="/assets/heroes/tidecaller.jpg" alt="Tidecaller" loading="lazy" width="240" height="240"><span>Tidecaller</span></button>
+            <button class="hero-tile" type="button" data-name="Ghost Soul"><img src="/assets/heroes/ghost-soul.jpg" alt="Ghost Soul" loading="lazy" width="240" height="240"><span>Ghost Soul</span></button>
+            <button class="hero-tile" type="button" data-name="Dark Ghost"><img src="/assets/heroes/dark-ghost.jpg" alt="Dark Ghost" loading="lazy" width="240" height="240"><span>Dark Ghost</span></button>
+            <button class="hero-tile" type="button" data-name="Demon Realm"><img src="/assets/heroes/demon-realm.jpg" alt="Demon Realm" loading="lazy" width="240" height="240"><span>Demon Realm</span></button>
+            <button class="hero-tile" type="button" data-name="Abyss"><img src="/assets/heroes/abyss.jpg" alt="Abyss" loading="lazy" width="240" height="240"><span>Abyss</span></button>
+            <button class="hero-tile" type="button" data-name="Annihilation"><img src="/assets/heroes/annihilation.jpg" alt="Annihilation" loading="lazy" width="240" height="240"><span>Annihilation</span></button>
+            <button class="hero-tile" type="button" data-name="Frenzy"><img src="/assets/heroes/frenzy.jpg" alt="Frenzy" loading="lazy" width="240" height="240"><span>Frenzy</span></button>
+            <button class="hero-tile" type="button" data-name="Emberclaw"><img src="/assets/heroes/emberclaw.jpg" alt="Emberclaw" loading="lazy" width="240" height="240"><span>Emberclaw</span></button>
+            <button class="hero-tile" type="button" data-name="Aran"><img src="/assets/heroes/aran.jpg" alt="Aran" loading="lazy" width="240" height="240"><span>Aran</span></button>
+            <button class="hero-tile" type="button" data-name="Cinderstar"><img src="/assets/heroes/cinderstar.jpg" alt="Cinderstar" loading="lazy" width="240" height="240"><span>Cinderstar</span></button>
+            <button class="hero-tile" type="button" data-name="Crimson Night"><img src="/assets/heroes/crimson-night.jpg" alt="Crimson Night" loading="lazy" width="240" height="240"><span>Crimson Night</span></button>
+            <button class="hero-tile" type="button" data-name="Azure Lancer"><img src="/assets/heroes/azure-lancer.jpg" alt="Azure Lancer" loading="lazy" width="240" height="240"><span>Azure Lancer</span></button>
+            <button class="hero-tile" type="button" data-name="Fallen Emperor"><img src="/assets/heroes/fallen-emperor.jpg" alt="Fallen Emperor" loading="lazy" width="240" height="240"><span>Fallen Emperor</span></button>
+            <button class="hero-tile" type="button" data-name="Golden Emperor"><img src="/assets/heroes/golden-emperor.jpg" alt="Golden Emperor" loading="lazy" width="240" height="240"><span>Golden Emperor</span></button>
+            <button class="hero-tile" type="button" data-name="Nature"><img src="/assets/heroes/nature.jpg" alt="Nature" loading="lazy" width="240" height="240"><span>Nature</span></button>
+            <button class="hero-tile" type="button" data-name="Frostveil"><img src="/assets/heroes/frostveil.jpg" alt="Frostveil" loading="lazy" width="240" height="240"><span>Frostveil</span></button>
+            <button class="hero-tile" type="button" data-name="Sword Saint"><img src="/assets/heroes/sword-saint.jpg" alt="Sword Saint" loading="lazy" width="240" height="240"><span>Sword Saint</span></button>
+            <button class="hero-tile" type="button" data-name="White King"><img src="/assets/heroes/white-king.jpg" alt="White King" loading="lazy" width="240" height="240"><span>White King</span></button>
+            <button class="hero-tile" type="button" data-name="Lightning"><img src="/assets/heroes/lightning.jpg" alt="Lightning" loading="lazy" width="240" height="240"><span>Lightning</span></button>
+            <button class="hero-tile" type="button" data-name="Saber"><img src="/assets/heroes/saber.jpg" alt="Saber" loading="lazy" width="240" height="240"><span>Saber</span></button>
+            <button class="hero-tile" type="button" data-name="Duskreaper"><img src="/assets/heroes/duskreaper.jpg" alt="Duskreaper" loading="lazy" width="240" height="240"><span>Duskreaper</span></button>
+            <button class="hero-tile unknown" type="button" data-name="Hero 29 — yet to be revealed"><span class="q">?</span><span>Yet to be revealed</span></button>
+            <button class="hero-tile unknown" type="button" data-name="Hero 30 — yet to be revealed"><span class="q">?</span><span>Yet to be revealed</span></button>
+            </div>
+            <figcaption class="roster-caption"><strong id="roster-name">The Cast</strong><span>28 heroes at their final tier · 2 yet to be revealed</span></figcaption>
+          </figure>
+
+          <!-- Progression: one hero's three tiers -->
+          <figure class="view view-progression" aria-labelledby="tab-progression">
+            <div class="tiers">
+              <div class="tier"><img src="/assets/tiers/crimson-night-t1.jpg" alt="Crimson Night, tier one" loading="lazy"><span class="tier-n">Tier I</span><strong>Crimson Red Moon</strong></div>
+              <div class="tier"><img src="/assets/tiers/crimson-night-t2.jpg" alt="Crimson Night, tier two" loading="lazy"><span class="tier-n">Tier II</span><strong>Moon Spirit of the Red Moon</strong></div>
+              <div class="tier"><img src="/assets/tiers/crimson-night-t3.jpg" alt="Crimson Night, tier three" loading="lazy"><span class="tier-n">Tier III</span><strong>Last Blood of the Longest Night</strong></div>
+            </div>
+            <ul class="systems" aria-label="Progression systems">
+              <li><span class="sys-k">Record of Deeds</span><span>A slow, permanent record that grows with each hero</span></li>
+              <li><span class="sys-k">The Collection</span><span>Pets, wings, auras and spirits, account-wide</span></li>
+              <li><span class="sys-k">Raids &amp; bosses</span><span>A bestiary to complete in every realm</span></li>
+              <li><span class="sys-k">Always on screen</span><span>Every bonus shown, nothing to guess</span></li>
+            </ul>
+            <figcaption class="tiers-caption"><strong>Every hero, three ascensions</strong><span>Shown: Crimson Night</span></figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
@@ -192,7 +272,7 @@
           <div class="project-body">
             <span class="status live">In active development</span>
             <h3>Covenant of Warring Gods</h3>
-            <p>The flagship. A Warcraft III RPG being rebuilt in Lua for long-session stability and a new era of content.</p>
+            <p>The flagship. A Warcraft III RPG rebuilt in Lua for long-session stability and a new era of content.</p>
             <a href="https://cwg.echowrought.com/">Visit the CWG hub →</a>
           </div>
         </article>
@@ -228,9 +308,9 @@
         <div><p class="eyebrow">The Chronicle</p><h2 class="h-serif">Notes from the forge</h2></div>
       </div>
       <div class="chronicle reveal">
-        <a href="https://discord.gg/Z5Pf8exufw" rel="noopener"><span class="date">NOV 2026</span><span class="tag">CWG RPG</span><span class="title">CWG RPG 1.30 enters testing</span></a>
-        <a href="https://discord.gg/Z5Pf8exufw" rel="noopener"><span class="date">NOV 2026</span><span class="tag">CWG RPG</span><span class="title">Why we rebuilt the whole map in Lua</span></a>
-        <a href="#top"><span class="date">NOV 2026</span><span class="tag" style="color: var(--violet-soft)">Studio</span><span class="title">Echowrought Games opens its doors</span></a>
+        <a href="/chronicle/cwg-1-30-enters-testing/"><span class="date">NOV 2026</span><span class="tag">CWG RPG</span><span class="title">CWG RPG 1.30 enters testing</span></a>
+        <a href="/chronicle/why-we-rebuilt-cwg-in-lua/"><span class="date">NOV 2026</span><span class="tag">CWG RPG</span><span class="title">Why we rebuilt the whole map in Lua</span></a>
+        <a href="/chronicle/echowrought-opens-its-doors/"><span class="date">NOV 2026</span><span class="tag" style="color: var(--violet-soft)">Studio</span><span class="title">Echowrought Games opens its doors</span></a>
       </div>
     </div>
   </section>
@@ -242,7 +322,6 @@
       <p>Patch notes first, tester calls, build-along devlogs — and the occasional mystery hidden in the world.</p>
       <div class="btn-row" style="justify-content:center;margin-top:10px">
         <a class="btn btn-gold" href="https://discord.gg/Z5Pf8exufw" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#i-chat"/></svg>Join the Discord</a>
-        <a class="btn btn-ghost" href="#" data-todo="codex-url">Read the Codex</a>
       </div>
     </div>
   </section>
@@ -257,8 +336,8 @@
       </a>
       <div class="footer-cols">
         <div><span class="head">Games</span><a href="https://cwg.echowrought.com/">CWG RPG</a><a href="#worlds">Upcoming</a></div>
-        <div><span class="head">Studio</span><a href="#studio">About</a><a href="#chronicle">Chronicle</a></div>
-        <div><span class="head">Community</span><a href="https://discord.gg/Z5Pf8exufw" rel="noopener">Discord</a><a href="#" data-todo="codex-url">Covenant Codex</a></div>
+        <div><span class="head">Studio</span><a href="#studio">About</a><a href="/chronicle/">Chronicle</a></div>
+        <div><span class="head">Community</span><a href="https://discord.gg/Z5Pf8exufw" rel="noopener">Discord</a><a href="https://cwg.echowrought.com/">CWG hub</a></div>
       </div>
     </div>
     <div class="footer-bottom">

@@ -23,6 +23,7 @@
     seal.focus({ preventScroll: true });
   }
   // Tabs (CWG section): click and arrow-key support
+  var stage = document.querySelector('.stage');
   var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
   function select(tab) {
     tabs.forEach(function (t) {
@@ -31,6 +32,7 @@
       t.tabIndex = on ? 0 : -1;
       var panel = document.getElementById(t.getAttribute('aria-controls'));
       if (panel) panel.hidden = !on;
+      if (on && stage && t.dataset.view) stage.setAttribute('data-active', t.dataset.view);
     });
   }
   tabs.forEach(function (t, i) {
@@ -44,6 +46,38 @@
       next.focus();
     });
   });
+
+  // Hero roster: show the hovered / tapped hero's name in the caption
+  var rosterName = document.getElementById('roster-name');
+  var tilesEls = document.querySelectorAll('.hero-tile');
+  function showHero(tile) {
+    tilesEls.forEach(function (x) { x.classList.toggle('on', x === tile); });
+    if (rosterName) rosterName.textContent = tile ? tile.dataset.name : 'The Cast';
+  }
+  tilesEls.forEach(function (tile) {
+    tile.addEventListener('mouseenter', function () { showHero(tile); });
+    tile.addEventListener('focus', function () { showHero(tile); });
+    tile.addEventListener('click', function () { showHero(tile); });
+  });
+  var roster = document.querySelector('.roster');
+  if (roster) roster.addEventListener('mouseleave', function () { showHero(null); });
+
+  // Sticky header gets more solid once you scroll; mobile menu toggle
+  var header = document.querySelector('.site-header');
+  var onScroll = function () { if (header) header.classList.toggle('scrolled', window.scrollY > 40); };
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  var menuBtn = document.querySelector('.menu-btn');
+  var navLinks = document.getElementById('nav-links');
+  if (menuBtn && navLinks) {
+    menuBtn.addEventListener('click', function () {
+      var open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    navLinks.addEventListener('click', function (e) {
+      if (e.target.closest('a')) { navLinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
+    });
+  }
 
   // Fade sections in as they scroll into view
   var items = document.querySelectorAll('.reveal');
