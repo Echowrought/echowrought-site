@@ -1,6 +1,9 @@
 // Runs in front of the static site in ./public.
 // If the Cloudflare variable `maintenance` is "true", every page shows the
 // "Down for Maintenance" screen. Anything else (or not set) = site as normal.
+// Pages that aren't found go through quietPage (see src/quiet.js).
+import { quietPage } from "./quiet.js";
+
 const HIDDEN = new Set([
   "/maintenance",
   "/maintenance/",
@@ -18,7 +21,7 @@ export default {
       if (HIDDEN.has(url.pathname)) {
         return env.ASSETS.fetch(new Request(new URL("/__not-found__", url), { method: request.method }));
       }
-      return env.ASSETS.fetch(request);
+      return quietPage(request, env, await env.ASSETS.fetch(request));
     }
 
     // The maintenance page's own image still needs to load.
