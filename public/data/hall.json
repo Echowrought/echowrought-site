@@ -1,0 +1,157 @@
+{
+ "_how_to_edit": "Add a player's name to a hero's \"name\" to fill that line. Leave it as \"\" while it's unclaimed. Add accolades as {title, name, note}.",
+ "immortalized": [
+  {
+   "hero": "Abyss",
+   "slug": "abyss",
+   "name": "FARAWAY"
+  },
+  {
+   "hero": "Annihilation",
+   "slug": "annihilation",
+   "name": "Fateborn"
+  },
+  {
+   "hero": "Aran",
+   "slug": "aran",
+   "name": "Moroson"
+  },
+  {
+   "hero": "Azure Lancer",
+   "slug": "azure-lancer",
+   "name": ""
+  },
+  {
+   "hero": "Cinderstar",
+   "slug": "cinderstar",
+   "name": "Noodles"
+  },
+  {
+   "hero": "Crimson Night",
+   "slug": "crimson-night",
+   "name": "NumB"
+  },
+  {
+   "hero": "Dark Ghost",
+   "slug": "dark-ghost",
+   "name": ""
+  },
+  {
+   "hero": "Death Spirit",
+   "slug": "death-spirit",
+   "name": "RetroFool"
+  },
+  {
+   "hero": "Demon Realm",
+   "slug": "demon-realm",
+   "name": "Jkm"
+  },
+  {
+   "hero": "Emberclaw",
+   "slug": "emberclaw",
+   "name": ""
+  },
+  {
+   "hero": "Fallen Emperor",
+   "slug": "fallen-emperor",
+   "name": "BlacKNeMeS"
+  },
+  {
+   "hero": "Frenzy",
+   "slug": "frenzy",
+   "name": ""
+  },
+  {
+   "hero": "Frostveil",
+   "slug": "frostveil",
+   "name": ""
+  },
+  {
+   "hero": "Galeheart",
+   "slug": "galeheart",
+   "name": "Laika"
+  },
+  {
+   "hero": "Ghost Soul",
+   "slug": "ghost-soul",
+   "name": "Ques"
+  },
+  {
+   "hero": "Golden Emperor",
+   "slug": "golden-emperor",
+   "name": "Yuki"
+  },
+  {
+   "hero": "Golden Star",
+   "slug": "golden-star",
+   "name": ""
+  },
+  {
+   "hero": "Heavenly Path",
+   "slug": "heavenly-path",
+   "name": "Lawlcakez"
+  },
+  {
+   "hero": "Lightning",
+   "slug": "lightning",
+   "name": "rooeypooey"
+  },
+  {
+   "hero": "Moonlit Night",
+   "slug": "moonlit-night",
+   "name": ""
+  },
+  {
+   "hero": "Nature",
+   "slug": "nature",
+   "name": ""
+  },
+  {
+   "hero": "Soulweaver",
+   "slug": "soulweaver",
+   "name": "Skii"
+  },
+  {
+   "hero": "Sword Saint",
+   "slug": "sword-saint",
+   "name": ""
+  },
+  {
+   "hero": "Tidecaller",
+   "slug": "tidecaller",
+   "name": "GetBasiled"
+  },
+  {
+   "hero": "Venomrose",
+   "slug": "venomrose",
+   "name": "Tetsu"
+  },
+  {
+   "hero": "White King",
+   "slug": "white-king",
+   "name": "Garp"
+  }
+ ],
+ "accolades": [
+  {
+   "title": "The Fool",
+   "name": "RetroFool",
+   "note": "Reached Tier III completely gearless, on Aran."
+  },
+  {
+   "title": "Above and Beyond",
+   "name": "BlacKNeMeS",
+   "note": "Bug reporting that went above and beyond."
+  },
+  {
+   "title": "First Against the Hollow",
+   "name": "Booyaz",
+   "note": "The first to stave off the Hollow."
+  },
+  {
+   "title": "First Completed Bestiary Entry",
+   "name": "Xdk21",
+   "note": "The first to complete an entry in the Bestiary."
+  }
+ ]
+}

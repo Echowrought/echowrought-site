@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CWG RPG 1.30 patch notes — Echowrought Games</title>
+<meta name="description" content="Everything new in CWG RPG 1.30: heroes, bosses and raids, items, new systems, interface and stability.">
+<meta name="theme-color" content="#0B0F17">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://echowrought.com/patch-notes/1-30/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CWG RPG 1.30 patch notes">
+<meta property="og:description" content="Everything new in CWG RPG 1.30: heroes, bosses and raids, items, new systems, interface and stability.">
+<meta property="og:image" content="https://echowrought.com/assets/og.jpg">
+<meta property="og:url" content="https://echowrought.com/patch-notes/1-30/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+<!-- Reusable vector mark (Citadel Seal) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="citadel" viewBox="0 0 100 100">
+    <g fill="none" stroke="#C9A66B"><circle cx="50" cy="50" r="46" stroke-width="2.4"/><circle cx="50" cy="50" r="42" stroke-width=".9" opacity=".6"/><path d="M13 60 A38 38 0 0 1 87 60" stroke-width="1.2"/><path d="M27 58 A26 26 0 0 1 73 58" stroke-width=".9" opacity=".6"/></g>
+    <path d="M12 66 L21 61.5 L22.5 55 L25.5 60 L28.5 51 L31.5 58 L35 45 L38.5 55.5 L42 37 L44.8 52 L47.2 28 L50 14 L52.8 28 L55.2 52 L58 37 L61.5 55.5 L65 45 L68.5 58 L71.5 51 L74.5 60 L77.5 55 L79 61.5 L88 66 L50 62.5 Z" fill="#C9A66B"/>
+    <path d="M12 70 Q40 70.5 50 92 Q60 70.5 88 70 Q60 74.5 50 84.5 Q40 74.5 12 70 Z" fill="#C9A66B"/>
+    <path d="M50 64.5 L51.5 69.5 L56.5 71 L51.5 72.5 L50 77.5 L48.5 72.5 L43.5 71 L48.5 69.5 Z" fill="#C9A66B"/>
+    <path d="M22 31 L23 34 L26 35 L23 36 L22 39 L21 36 L18 35 L21 34 Z M78 31 L79 34 L82 35 L79 36 L78 39 L77 36 L74 35 L77 34 Z" fill="#C9A66B" opacity=".85"/>
+    <path d="M50 2 L51.8 10.2 L58 12 L51.8 13.8 L50 22 L48.2 13.8 L42 12 L48.2 10.2 Z" fill="#C9BBF5"/>
+  </symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/></g></symbol>
+</svg>
+
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main">
+    <a class="brand" href="/#top">
+      <svg width="40" height="40" aria-hidden="true"><use href="#citadel"/></svg>
+      <span class="brand-text"><span class="brand-name">ECHOWROUGHT</span><span class="brand-sub">GAMES</span></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/#worlds">Games</a>
+      <a href="/#studio">Studio</a>
+      <a href="/chronicle/">Chronicle</a>
+      <a href="/#community">Community</a>
+      <a class="btn btn-gold btn-sm" href="https://discord.gg/Z5Pf8exufw" rel="noopener">
+        <svg width="18" height="18" aria-hidden="true"><use href="#i-chat"/></svg>Join Discord</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="article-hero pn-hero-band">
+    <div class="wrap">
+      <p class="article-meta"><span>November 2026</span><span class="tag">Patch notes</span><span class="tag tag-test">In testing</span></p>
+      <h1>CWG RPG 1.30</h1>
+      <p class="tagline" style="margin:0">The Lua update. Three weeks, 793 commits, and one very tired keyboard.</p>
+    </div>
+  </section>
+  <div class="wrap pn-layout">
+    <nav class="pn-nav" aria-label="Patch note sections">
+          <a href="#general">General</a>
+          <a href="#heroes">Heroes</a>
+          <a href="#bosses">Bosses &amp; Raids</a>
+          <a href="#world">World</a>
+          <a href="#loot">Items &amp; Loot</a>
+          <a href="#systems">New Systems</a>
+          <a href="#interface">Interface</a>
+          <a href="#stability">Saves &amp; Stability</a>
+          <a href="#fixes">Bug Fixes</a>
+    </nav>
+    <div class="pn-body">
+      <p class="pn-note">1.30 is in testing. These notes may still change before release.</p>
+
+      <section class="pn-section" id="general">
+        <h2>General</h2>
+        <ul class="pn-list">
+          <li>The whole map is rebuilt in Lua. Same game, new bones. <a href="/chronicle/why-we-rebuilt-cwg-in-lua/">Why we did it</a>.</li>
+          <li>New save system. Old saves convert once on your first load, then you're on the new one for good.</li>
+          <li>Loads take turns: first come, first served, a few seconds apart. You're told your place in line. No more two people loading at once and taking the lobby down with them.</li>
+          <li>Single player is back. Warcraft cheat codes still work; they just switch off saving for that game. Nice try.</li>
+          <li>All remaining Korean text translated. Big numbers read as K / M / B.</li>
+          <li>Names borrowed from other games and shows are replaced with names from our own world. Your saves and chat commands don't change.</li>
+          <li>New loading screen, character select backdrop, lobby text and map preview.</li>
+          <li>The map file is a good deal smaller.</li>
+        </ul>
+      </section>
+
+      <section class="pn-section" id="heroes">
+        <h2>Heroes</h2>
+        <ul class="pn-list">
+          <li>Every hero has new art and icons for all three tiers. Character select uses them.</li>
+          <li>When full Mana fires your burst, it now waits 3 s with a light over your hero. Press your <b>signature</b> button to release it at full strength, or leave it and it goes off at half.</li>
+          <li>The shared speed button is gone. Every hero gets their own button instead.</li>
+          <li>Every hero gets one mechanic that's theirs alone (see below).</li>
+          <li>Casting never costs you damage. Stop auto-attacking out of fear.</li>
+          <li>Full balance pass. Heroes were measured against real bosses, then tuned to their role. Some went up, a few came down, nobody got deleted.</li>
+          <li>Every damage number in every skill tooltip checked against the actual code, and they follow your hero's current form.</li>
+          <li>Blinks reach 1000 range.</li>
+          <li>Elements, the Nature element and Potential hit the same on every hero form.</li>
+          <li>Runes turn on just by being carried: hero, bag or storage.</li>
+        </ul>
+        <div class="pn-heroes">
+          <div class="pn-hero">
+            <img src="/assets/heroes/abyss.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Abyss</h4>
+              <ul class="pn-list">
+              <li>New: <b>Release</b> on command. Full Mana lights the button; let it go yourself for full strength.</li>
+              <li>Spears now fly to the target instead of wherever they felt like.</li>
+              <li>Rune of Abyss is wired up. It does things now.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/annihilation.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Annihilation</h4>
+              <ul class="pn-list">
+              <li>New: <b>Overheat</b>.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/aran.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Aran</h4>
+              <ul class="pn-list">
+              <li>Role: the mobile tank.</li>
+              <li>New: <b>Terra Reflect Wall</b>. 6 s, 15 s cooldown. Retaliates for STR x35, and no single hit can take more than 35% of your max HP while it stands.</li>
+              <li>Earthfall 0.78 → 0.39.</li>
+              <li>The wall no longer eats your frame rate.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/azure-lancer.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Azure Lancer</h4>
+              <ul class="pn-list">
+              <li>New: <b>Static Charge</b>.</li>
+              <li>Tier 3 casts instantly.</li>
+              <li>Azure Rush Thunderfall fixed.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/cinderstar.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Cinderstar</h4>
+              <ul class="pn-list">
+              <li>New: <b>Kindling</b>.</li>
+              <li>Burst restored to how it used to hit.</li>
+              <li>Proc chance adjusted.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/crimson-night.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Crimson Night</h4>
+              <ul class="pn-list">
+              <li>New: <b>Blood Moon Combo</b>.</li>
+              <li>Afterimages last 60 s (30 s cooldown).</li>
+              <li>Tier 2 textures stay in the map now.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/dark-ghost.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Dark Ghost</h4>
+              <ul class="pn-list">
+              <li>New: <b>Shadow Execution</b>.</li>
+              <li>Shadows last 60 s (75 s cooldown).</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/death-spirit.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Death Spirit</h4>
+              <ul class="pn-list">
+              <li>New: <b>Harvest</b> (All Stats x12).</li>
+              <li>Fixed the game crashing when Tier 1 spawns. Strong debuff, wrong target.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/demon-realm.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Demon Realm</h4>
+              <ul class="pn-list">
+              <li>New: <b>Six Chambers</b>. 6 rounds of Crimson Salvo, AGI x8 each.</li>
+              <li>His rune loads 8–9 rounds.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/emberclaw.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Emberclaw</h4>
+              <ul class="pn-list">
+              <li>New: <b>Dragonheart</b>.</li>
+              <li>Roar updated.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/fallen-emperor.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Fallen Emperor</h4>
+              <ul class="pn-list">
+              <li>New: <b>Imperial Decree</b> (+50%).</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/frenzy.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Frenzy</h4>
+              <ul class="pn-list">
+              <li>New: <b>Blood Debt</b>. For 12 s, stores 40% of the damage you take, then bursts for STR x6 plus everything stored and heals you for half.</li>
+              <li>Blood Debt gets its own painted icon.</li>
+              <li>Rune and Phantasma back to their old numbers.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/frostveil.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Frostveil</h4>
+              <ul class="pn-list">
+              <li>New: <b>Shatter</b>.</li>
+              <li>Full-Mana signature burst: Absolute Glacial Thunder / Glacial Hymn.</li>
+              <li>His rune was wired to Galeheart's proc (and hers to his). Neither ever worked. Untangled.</li>
+              <li>Heavenly Snow raises the Chill cap to 13–15.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/galeheart.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Galeheart</h4>
+              <ul class="pn-list">
+              <li>Full-Mana signature burst: Aeolos Tempest / Skyfall Meteor Rain.</li>
+              <li>Rune fixed (see Frostveil, above) and hits harder.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/ghost-soul.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Ghost Soul</h4>
+              <ul class="pn-list">
+              <li>New: <b>Soul Brand</b>. Marks a target for 12 s, then detonates for 15% of the damage your side dealt to it. Double on bosses.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/golden-emperor.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Golden Emperor</h4>
+              <ul class="pn-list">
+              <li>New: <b>Treasury Ledger</b>. 1 gold per attack, 2 at full Mana, up to 100.</li>
+              <li>His ultimate gains +3% per gold in the Ledger. Spend wisely, or don't.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/golden-star.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Golden Star</h4>
+              <ul class="pn-list">
+              <li>New: <b>Beacon</b>.</li>
+              <li>Full-Mana signature burst: Holy Crusade, now on a 30 s cooldown.</li>
+              <li>Burst and Tier 3 Genesis updated.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/heavenly-path.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Heavenly Path</h4>
+              <ul class="pn-list">
+              <li>Role: the controller.</li>
+              <li>Full-Mana signature burst: Stellar Convergence.</li>
+              <li>Procs at 15%.</li>
+              <li>Preta Path: getting hit fills 15% of your Mana bar, at most once a second.</li>
+              <li>Tier 1 and Tier 2 damage up.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/lightning.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Lightning</h4>
+              <ul class="pn-list">
+              <li>New: <b>Storm Chain</b>. At most 2 jumps a second.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/moonlit-night.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Moonlit Night</h4>
+              <ul class="pn-list">
+              <li>New: <b>Mirror Exchange</b>.</li>
+              <li>Blink moved to D, Red Starfall to E.</li>
+              <li>Her Gt5 proc scales with INT.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/nature.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Nature</h4>
+              <ul class="pn-list">
+              <li>New: <b>Rootwall</b>.</li>
+              <li>Magic Immunity icon now leaves when the passive does.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/soulweaver.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Soulweaver</h4>
+              <ul class="pn-list">
+              <li>New tier art and icons.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/sword-saint.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Sword Saint</h4>
+              <ul class="pn-list">
+              <li>New: <b>Iaido</b>.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/tidecaller.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Tidecaller</h4>
+              <ul class="pn-list">
+              <li>New: <b>Tide Cycle</b>.</li>
+              <li>Tier 3 Mana set to 100.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/venomrose.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>Venomrose</h4>
+              <ul class="pn-list">
+              <li>New: <b>Contagion</b>.</li>
+              <li>Tier 1 damage adjusted.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pn-hero">
+            <img src="/assets/heroes/white-king.jpg" alt="" width="64" height="64" loading="lazy">
+            <div>
+              <h4>White King</h4>
+              <ul class="pn-list">
+              <li>New: <b>Banner Command</b>.</li>
+              <li>Damage x1.2.</li>
+              <li>Tier 3 Seraphiel / Ramiel: 15% chance, 850 range, instant cast, guards himself.</li>
+              <li>Knight's Guard shield is spell-sized again (600 radius) and gold.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p class="pn-flavor">Two more names were found in the Record this season, smudged and only half legible. The scribes insist the ink is still drying. We asked for a date and they took our quills.</p>
+      </section>
+
+      <section class="pn-section" id="bosses">
+        <h2>Bosses &amp; Raids</h2>
+        <h3 class="pn-sub">New raids</h3>
+        <ul class="pn-list">
+          <li>Ruinwing and Varthion raids.</li>
+          <li>The Twilight Brood raid, with Nyxareth and company.</li>
+          <li>The Abraham raid. Bring friends. Bring more friends.</li>
+          <li>Hell Expedition, with bosses that scale with each stage.</li>
+        </ul>
+        <h3 class="pn-sub">Every boss fight</h3>
+        <ul class="pn-list">
+          <li>One system now runs every pattern boss. One pattern at a time, cast from up to 1,500 away, no more walking over to hit you.</li>
+          <li>Ground telegraphs on every attack, with a fill that shows when it lands. <span class="t-red">Red</span> hurts. <span class="t-green">Green</span> is safe. <span class="t-purple">Purple</span> kills.</li>
+          <li>Every cast warns first, and the warning text says what actually happens.</li>
+          <li>Raid bosses blink home when dragged out of their zone.</li>
+          <li>Arcadiel, Myrkalis and Aeonvar reset HP and Mana when the raid disengages.</li>
+        </ul>
+        <h3 class="pn-sub">Specific bosses</h3>
+        <ul class="pn-list">
+          <li>Ruinwing: Ring of Doom wave 2 spares the inner disk.</li>
+          <li>Teneph stands his ground. His Northern Warden now carries a real aura (-30% Movement Speed nearby).</li>
+          <li>Liopleurodon's maelstrom is back to 4 waves.</li>
+          <li>Zarktul's storm shows its safe zone.</li>
+          <li>Somnaria's Life fields 150M. Raging Tide no longer shreds armor.</li>
+          <li>Kronos no longer spawns in the event room. He wasn't invited.</li>
+          <li>Hovering over Basilgar no longer crashes the game.</li>
+        </ul>
+      </section>
+
+      <section class="pn-section" id="world">
+        <h2>World &amp; Gameplay</h2>
+        <ul class="pn-list">
+          <li>Travel menu: 7 realm tabs and new destinations.</li>
+          <li>You can no longer walk, blink or dash across zone borders. Yes, that shortcut. Sorry.</li>
+          <li>Field portals to bosses have a rune ring on the ground and the boss's name above it.</li>
+          <li>The ghost ships' decks are solid ground now.</li>
+          <li>The day/night clock is gone. The sky in these realms hasn't moved since the war ended; the map just stopped pretending.</li>
+          <li>Terra's giants and the Black Brood field spawn when you travel there, not when you wander in.</li>
+          <li>Event zone: Sunfang and Poporing have moved in. Sunfang drops Sunfang's Ward (+2 to +10).</li>
+        </ul>
+        <h3 class="pn-sub">The Hollow</h3>
+        <ul class="pn-list">
+          <li>Hollow Night has ended. The Hollowbound and Elites stayed anyway.</li>
+          <li>Slain Colossal and Named bosses have a 2% chance to rise again as <b>Hollow-touched</b>: double health, 1.5x damage, and the Hollow's Mark (a sigil that bursts for 25% max HP; never lethal).</li>
+          <li>Hollow-touched bosses drop one guaranteed item from their own table, plus lumber for everyone nearby, and get their own Bestiary entry.</li>
+        </ul>
+      </section>
+
+      <section class="pn-section" id="loot">
+        <h2>Items &amp; Loot</h2>
+        <h3 class="pn-sub">Drops</h3>
+        <ul class="pn-list">
+          <li>Raid loot rolls for everyone in range. New setting: Solo (straight to your bags) or Group (held for 60 s).</li>
+          <li>One roll per item per kill, and the chances match the drop-table panel. The drop-table button lists every drop.</li>
+          <li>Escalating odds: each kill adds +0.5% to items above 1%, shown on every boss from the first kill.</li>
+          <li>Anya never takes an item held for someone else, and auto-pickup works with her again.</li>
+          <li>Rare wings from the Elemental Spirit rare mobs: Hollowfeather, Bloodglass, Starless Veil and Covenant Dawnwings.</li>
+        </ul>
+        <h3 class="pn-sub">Gear &amp; progression</h3>
+        <ul class="pn-list">
+          <li>Gear tiers 31–50, the Primordial book shop, and Genesis gear (Anakrum, Anakiel, Nephiragon).</li>
+          <li>Runes: 155 of them, with engraving and enhancement.</li>
+          <li>Relics: fragments drop from the new bosses. Transcend them I to V on a brand-new panel.</li>
+          <li>Elemental Resonance goes to +60.</li>
+          <li>Boss Subjugation Chests, and a crafting chain we're not going to spoil.</li>
+          <li>Attack speed can go past +400%.</li>
+        </ul>
+        <h3 class="pn-sub">Tidying up</h3>
+        <ul class="pn-list">
+          <li>Essences are named after the boss that drops them. No more shared names.</li>
+          <li>Tooltips show stats, break chances and craft chances.</li>
+          <li>Enhancement reads +1, +2, +3 with no gaps, and the success message names the right level.</li>
+          <li>Every item the map can make can be saved.</li>
+          <li>Hollow Lantern stacks stop at level 5 (some of you saw 24).</li>
+        </ul>
+      </section>
+
+      <section class="pn-section" id="systems">
+        <h2>New Systems</h2>
+        <h3 class="pn-sub">Record of Deeds</h3>
+        <ul class="pn-list">
+          <li>Earn Deeds in every realm. Higher realms pay a lot more.</li>
+          <li>Spend them to level the Record for main stat. Early levels are cheap.</li>
+          <li>8 Inscriptions fill by level 1,000, then Endless Will keeps going forever.</li>
+          <li>Lives on its own button on the HUD.</li>
+        </ul>
+        <h3 class="pn-sub">The Collection</h3>
+        <ul class="pn-list">
+          <li>One painted panel, 8 tabs: wings, auras, pets, bags, Tailed Spirits and more.</li>
+          <li>Bags collect themselves, account-wide. Change Look lets any bag wear a look you've collected.</li>
+          <li>Every entry says where it comes from.</li>
+          <li>Hero effects count as auras: +3% aura damage each. The full set is any 14 of 19.</li>
+          <li>Skins tab is in. Skins are coming in a later update.</li>
+        </ul>
+        <h3 class="pn-sub">Achievements</h3>
+        <ul class="pn-list">
+          <li>Achievements belong to your account and count back to your first game.</li>
+          <li>40 monster-family achievements, raid challenges (Deathless, Few Hands), and Tier II / Tier III victories for every raid boss.</li>
+          <li>Achievements for huge roll counts carry a tiny bit of pity. We're not monsters.</li>
+        </ul>
+        <h3 class="pn-sub">Also new</h3>
+        <ul class="pn-list">
+          <li>Bestiary: 12 new bosses, a milestone every 8%, one realm per page.</li>
+          <li>Character Card: base and bonus stats, elements, every defence source, Familiars page.</li>
+          <li>The Core, Sailing Potential (+1 to +5), an 11th storage bag, companions and riding mounts.</li>
+          <li>Beginner and Otherworld quests.</li>
+          <li>Pet buffs reach their owner anywhere on the map, and every pet effect has a visible button.</li>
+        </ul>
+      </section>
+
+      <section class="pn-section" id="interface">
+        <h2>Interface</h2>
+        <ul class="pn-list">
+          <li>Added a DPS meter in-game. On the Training Dummy it starts on your first hit and shows DPS, total, biggest hit and your top skills. On raid bosses it ranks everyone's damage, DPS and share. Settle your arguments.</li>
+          <li>Settings: your own Effects (Full / Reduced) and Screen Shake. Host keeps Performance Mode. Kill-reward text is off unless you want it.</li>
+          <li>Status bar: 13 buff slots, temporary effects first, one slot each for Companions and Tailed Spirits. No more flicker on hover.</li>
+          <li>Panels open from HUD buttons, not chat commands. Esc closes every menu.</li>
+          <li>Monster and boss names sit under the portrait, like heroes'.</li>
+          <li>No more Warcraft dialog boxes.</li>
+          <li>Quest box follows the edge of widescreen monitors.</li>
+          <li>Chat typed during character select waits for your hero.</li>
+        </ul>
+      </section>
+
+      <section class="pn-section" id="stability">
+        <h2>Saves &amp; Stability</h2>
+        <ul class="pn-list">
+          <li>Save files are about a third smaller, so they reach everyone faster. <code>-savestatus</code> shows how long yours took.</li>
+          <li>If a hero can't load, the game tells you why.</li>
+          <li>Loading work moved behind the loading screen, so games settle faster after everyone loads.</li>
+          <li>Multiplayer desyncs fixed, including the one from Relic Transcend.</li>
+          <li>Panel clicks only act for the player who clicked.</li>
+          <li>Big memory-leak cleanup. One status board was making 19 new objects per player, per second. It has been spoken to.</li>
+          <li>Crash fixes: command buttons with nothing selected, status icons on hidden units, the day clock, and more.</li>
+          <li>457 doodads that were invisible are back. Walls close their gaps, and the planets are no longer black.</li>
+        </ul>
+      </section>
+
+      <section class="pn-section" id="fixes">
+        <h2>Bug Fixes</h2>
+        <ul class="pn-list">
+          <li>On-attack effects inside conditions ran twice per attack. Now once.</li>
+          <li>Companion bag forms no longer double their bonuses. It was nice while it lasted.</li>
+          <li>Peter's Firmament works.</li>
+          <li>Toucan boss damage refreshes by itself.</li>
+          <li>The Black Dragon no longer drops Umbrael.</li>
+          <li>Tooltips with commas show in full.</li>
+        </ul>
+      </section>
+      <div class="article-foot">
+        <a class="back-link" href="/chronicle/">← All Chronicle entries</a>
+        <a class="back-link" href="https://discord.gg/Z5Pf8exufw" rel="noopener">Talk about it on Discord →</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="/#top">
+        <svg width="44" height="44" aria-hidden="true"><use href="#citadel"/></svg>
+        <span class="brand-text"><span class="brand-name" style="font-size:18px">ECHOWROUGHT</span><span class="brand-sub">GAMES</span></span>
+      </a>
+      <div class="footer-cols">
+        <div><span class="head">Games</span><a href="https://cwg.echowrought.com/">CWG RPG</a><a href="/#worlds">Upcoming</a></div>
+        <div><span class="head">Studio</span><a href="/#studio">About</a><a href="/chronicle/">Chronicle</a></div>
+        <div><span class="head">Community</span><a href="https://discord.gg/Z5Pf8exufw" rel="noopener">Discord</a><a href="https://cwg.echowrought.com/">CWG hub</a><a href="/immortalized/">The Immortalized</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Echowrought Games · echowrought.com</span>
+      <span>Warcraft III is a trademark of Blizzard Entertainment. CWG RPG is a fan-made custom map, not affiliated with or endorsed by Blizzard.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js" defer></script>
+</body>
+</html>

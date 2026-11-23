@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why we rebuilt the whole map in Lua — Echowrought Games</title>
+<meta name="description" content="Why CWG RPG was rebuilt from its old JASS code into Lua for version 1.30: stability, saves, balance and faster updates in the long run.">
+<meta name="theme-color" content="#0B0F17">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://echowrought.com/chronicle/why-we-rebuilt-cwg-in-lua/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why we rebuilt the whole map in Lua">
+<meta property="og:description" content="Why CWG RPG was rebuilt from its old JASS code into Lua for version 1.30: stability, saves, balance and faster updates in the long run.">
+<meta property="og:image" content="https://echowrought.com/assets/og.jpg">
+<meta property="og:url" content="https://echowrought.com/chronicle/why-we-rebuilt-cwg-in-lua/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+<!-- Reusable vector mark (Citadel Seal) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="citadel" viewBox="0 0 100 100">
+    <g fill="none" stroke="#C9A66B"><circle cx="50" cy="50" r="46" stroke-width="2.4"/><circle cx="50" cy="50" r="42" stroke-width=".9" opacity=".6"/><path d="M13 60 A38 38 0 0 1 87 60" stroke-width="1.2"/><path d="M27 58 A26 26 0 0 1 73 58" stroke-width=".9" opacity=".6"/></g>
+    <path d="M12 66 L21 61.5 L22.5 55 L25.5 60 L28.5 51 L31.5 58 L35 45 L38.5 55.5 L42 37 L44.8 52 L47.2 28 L50 14 L52.8 28 L55.2 52 L58 37 L61.5 55.5 L65 45 L68.5 58 L71.5 51 L74.5 60 L77.5 55 L79 61.5 L88 66 L50 62.5 Z" fill="#C9A66B"/>
+    <path d="M12 70 Q40 70.5 50 92 Q60 70.5 88 70 Q60 74.5 50 84.5 Q40 74.5 12 70 Z" fill="#C9A66B"/>
+    <path d="M50 64.5 L51.5 69.5 L56.5 71 L51.5 72.5 L50 77.5 L48.5 72.5 L43.5 71 L48.5 69.5 Z" fill="#C9A66B"/>
+    <path d="M22 31 L23 34 L26 35 L23 36 L22 39 L21 36 L18 35 L21 34 Z M78 31 L79 34 L82 35 L79 36 L78 39 L77 36 L74 35 L77 34 Z" fill="#C9A66B" opacity=".85"/>
+    <path d="M50 2 L51.8 10.2 L58 12 L51.8 13.8 L50 22 L48.2 13.8 L42 12 L48.2 10.2 Z" fill="#C9BBF5"/>
+  </symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/></g></symbol>
+</svg>
+
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main">
+    <a class="brand" href="/#top">
+      <svg width="40" height="40" aria-hidden="true"><use href="#citadel"/></svg>
+      <span class="brand-text"><span class="brand-name">ECHOWROUGHT</span><span class="brand-sub">GAMES</span></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/#worlds">Games</a>
+      <a href="/#studio">Studio</a>
+      <a href="/chronicle/">Chronicle</a>
+      <a href="/#community">Community</a>
+      <a class="btn btn-gold btn-sm" href="https://discord.gg/Z5Pf8exufw" rel="noopener">
+        <svg width="18" height="18" aria-hidden="true"><use href="#i-chat"/></svg>Join Discord</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="article-hero">
+    <div class="wrap">
+      <p class="article-meta"><span>November 2026</span><span class="tag">CWG RPG</span></p>
+      <h1>Why we rebuilt the whole map in Lua</h1>
+    </div>
+  </section>
+  <article class="article-body">
+    <p class="dek">CWG has been patched hard since July. Version 1.30 rebuilds it in Lua, so every update after it is easier than the ones before.</p>
+    <h2>The map we had</h2>
+    <p>The CWG most of you play today is built on JASS, Warcraft III's original scripting language. It has carried the game a long way, but it has also carried <strong>months of patches stacked on patches</strong>, done fast and under pressure. Some parts had become hard to read even for us, and every fix risked breaking something two systems over.</p>
+    <p>For a while we were effectively working on two maps at once: keeping the live JASS map patched while the Lua rebuild took shape beside it. Every fix had to be made twice. That doesn't scale, and it isn't fun.</p>
+
+    <h2>The problems that kept coming back</h2>
+    <p>Some bugs never really went away, no matter how many times they were patched, most of all around <strong>saving and loading</strong>, where two players loading at once, or a hit landing mid-load, could desync a game or crash it.</p>
+    <p>CWG is played in very long sessions. People keep the same game running for days. In a map like that, small leaks and rare crashes add up, and stability stops being a nice-to-have and becomes the whole foundation.</p>
+
+    <h2>Why Lua</h2>
+    <ul>
+      <li><strong>A modern language.</strong> Real data structures and cleaner code mean each system can live in its own place and be changed without tripping over the others.</li>
+      <li><strong>Tests before players.</strong> Changes are checked automatically before they ever reach a lobby.</li>
+      <li><strong>Balance by measurement.</strong> We built a combat simulator that runs the map's own code, so hero changes are measured against real bosses instead of guessed at.</li>
+      <li><strong>Finding leaks and slowdowns.</strong> We can see what's using memory and frame time during a long game, and fix the worst offenders directly.</li>
+      <li><strong>Community tools.</strong> Lua opens the door to libraries and effects made by the wider Warcraft III modding community.</li>
+    </ul>
+
+    <h2>What it means for you</h2>
+    <ul>
+      <li><strong>One map,</strong> so every update reaches everyone at once.</li>
+      <li><strong>A new save system.</strong> Saves are rebuilt from scratch, and your existing saves carry over automatically.</li>
+      <li><strong>Steadier games.</strong> Loads take turns instead of colliding, and the long-standing desync and crash spots have been worked through one by one.</li>
+      <li><strong>Nothing hidden.</strong> Every bonus and mechanic is shown in the interface, so nobody has to guess what's affecting their hero.</li>
+    </ul>
+
+    <blockquote>It's almost a whole new game under the hood, built so the next update doesn't have to fight the last one.</blockquote>
+
+    <h2>What happens next</h2>
+    <p>The Lua version ships as <strong>CWG RPG 1.30</strong>. It's in testing now; <a href="/chronicle/cwg-1-30-enters-testing/">here's what that means</a>. Release notes, tester calls and the occasional surprise go to the Discord first.</p>
+      <div class="article-foot">
+        <a class="back-link" href="/chronicle/">← All Chronicle entries</a>
+        <a class="back-link" href="https://discord.gg/Z5Pf8exufw" rel="noopener">Talk about it on Discord →</a>
+      </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="/#top">
+        <svg width="44" height="44" aria-hidden="true"><use href="#citadel"/></svg>
+        <span class="brand-text"><span class="brand-name" style="font-size:18px">ECHOWROUGHT</span><span class="brand-sub">GAMES</span></span>
+      </a>
+      <div class="footer-cols">
+        <div><span class="head">Games</span><a href="https://cwg.echowrought.com/">CWG RPG</a><a href="/#worlds">Upcoming</a></div>
+        <div><span class="head">Studio</span><a href="/#studio">About</a><a href="/chronicle/">Chronicle</a></div>
+        <div><span class="head">Community</span><a href="https://discord.gg/Z5Pf8exufw" rel="noopener">Discord</a><a href="https://cwg.echowrought.com/">CWG hub</a><a href="/immortalized/">The Immortalized</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Echowrought Games · echowrought.com</span>
+      <span>Warcraft III is a trademark of Blizzard Entertainment. CWG RPG is a fan-made custom map, not affiliated with or endorsed by Blizzard.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js" defer></script>
+</body>
+</html>
