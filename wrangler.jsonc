@@ -3,8 +3,11 @@
 {
   "name": "echowrought-site",
   "compatibility_date": "2026-11-01",
+  // OFFLINE: the whole site currently serves only ./offline.
+  // To bring echowrought.com back, change these two lines back to:
+  //   "directory": "./public",  "not_found_handling": "404-page"
   "assets": {
-    "directory": "./public",
-    "not_found_handling": "404-page"
+    "directory": "./offline",
+    "not_found_handling": "single-page-application"
   }
 }
