@@ -383,6 +383,7 @@ a:hover { color: var(--parchment); }
 .pn-hero h4 { margin: 2px 0 4px; font-family: var(--display); font-size: 17px; letter-spacing: .06em; color: var(--parchment); }
 .pn-hero .pn-list li { padding: 3px 0 3px 18px; font-size: 15px; }
 .pn-hero .pn-list li::before { top: 11px; }
+.pn-num { color: var(--violet-soft); }
 .pn-flavor { margin: 22px 0 0; padding: 18px 22px; border-left: 2px solid var(--violet-glow); background: rgba(90,75,138,.1); font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--violet-soft); line-height: 1.5; }
 .t-red { color: #E5675C; font-weight: 600; } .t-green { color: #6FCF8E; font-weight: 600; } .t-purple { color: #B48CFF; font-weight: 600; }
 @media (max-width: 860px) {
