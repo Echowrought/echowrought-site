@@ -55,7 +55,7 @@
 <main>
   <section class="article-hero pn-hero-band">
     <div class="wrap">
-      <p class="article-meta"><span>November 2026</span><span class="tag">Patch notes</span><span class="tag tag-test">In testing</span></p>
+      <p class="article-meta"><span>November 2026</span><span class="tag">Patch notes</span><span class="tag">Released</span></p>
       <h1>CWG RPG 1.30</h1>
       <p class="tagline" style="margin:0">The Lua update. Three weeks, 793 commits, and one very tired keyboard.</p>
     </div>
@@ -73,7 +73,7 @@
           <a href="#fixes">Bug Fixes</a>
     </nav>
     <div class="pn-body">
-      <p class="pn-note">1.30 is in testing. These notes may still change before release.</p>
+      <p class="pn-note">Newer: <a href="/patch-notes/1-31/">CWG RPG 1.31 patch notes</a>.</p>
 
       <section class="pn-section" id="general">
         <h2>General</h2>
@@ -341,7 +341,6 @@
               <li>New: <b>Storm Chain</b>. At most 2 jumps a second.</li>
               <li>Tier 3: Storm Chain works on his basic attacks and bolt procs too, jumping to 5 more enemies at 75%.</li>
               <li>Lightning Edge moves to D.</li>
-              <li>New: <b>Storm Skin</b>, every tier. Takes 15% less damage, and every enemy his attacks and bolts strike heals him 0.2% of max HP (up to 0.6% a second).</li>
               <li><span class="pn-num">Damage vs live. Tier 1: Azure Lightning Flash, Clear-Sky Thunderfall, Lightning Edge x0.86, passives x0.35. Tier 2: passives x0.42. Tier 3: Blue Heaven, Thunderstrike, Azure Lance x1.66, passives x1.30, Raijin Storm Avatar and Amanomagayumi x1.28.</span></li>
               </ul>
             </div>
@@ -426,7 +425,6 @@
               <li>Damage x1.2.</li>
               <li>Tier 3 Seraphiel / Ramiel: 15% chance, 850 range, instant cast, guards himself.</li>
               <li>Knight's Guard shield is spell-sized again (600 radius) and gold.</li>
-              <li>Peter's Firmament lasts the full 10 seconds its tooltip says (it ended after 8). Same total healing.</li>
               <li><span class="pn-num">Damage vs live. Tier 1: passive x0.60. Tier 2: passives x0.83. Tier 3: Judgment's Trajectory and Sanctuary Bloom x2.10, passives x1.12 / x0.80, Banner Command x0.31 (the flag's echo was carrying her boss damage).</span></li>
               </ul>
             </div>
@@ -465,9 +463,6 @@
           <li>Every cast warns first, and the warning text says what actually happens.</li>
           <li>Staggered attacks warn one hit at a time. When a pattern drops several circles, each one appears as late as the first did. No more reading the third hit three seconds early.</li>
           <li>Raid bosses blink home when dragged out of their zone.</li>
-          <li>A hero that ends up in the black space outside the world is brought back to town.</li>
-          <li>Wearing a title no longer sends your saves to a different file. Progress saved under a title is found and restored the first time you start 1.30.</li>
-          <li>Bosses in ticket dungeons and farming areas (Arcadiel, Inorex, Leviathan Melvillei, Strak, Ganesha, Morkazar) no longer hunt you across their whole area. They fight whoever comes to them.</li>
           <li>Bosses only take damage from heroes standing inside their zone. Casting over the wall now shows <b>Out of reach</b> and does nothing. We saw you.</li>
           <li>Boss indicators are new from top to bottom: lines and cones as well as circles, drawn on the arena floor (not under it), at each attack's real size.</li>
           <li>Arcadiel, Myrkalis and Aeonvar reset HP and Mana when the raid disengages.</li>
@@ -627,7 +622,7 @@
       <section class="pn-section" id="interface">
         <h2>Interface</h2>
         <ul class="pn-list">
-          <li>Added a DPS meter in-game. On the Training Dummy it starts on your first hit and shows DPS, total, biggest hit and your top skills. On raid bosses it ranks everyone's damage, DPS and share, by BattleTag. Settle your arguments.</li>
+          <li>Added a DPS meter in-game. On the Training Dummy it starts on your first hit and shows DPS, total, biggest hit and your top skills. On raid bosses it ranks everyone's damage, DPS and share. Settle your arguments.</li>
           <li>New Settings panel: your own Effects (Full / Reduced), Screen Shake, Damage Numbers and loot mode. Host keeps Performance Mode. Kill-reward text is off unless you want it.</li>
           <li><code>-commands</code> and <code>-systems</code> are rewritten for this version. Full descriptions are in the F9 quest log.</li>
           <li>Status bar: 13 buff slots, temporary effects first, one slot each for Companions and Tailed Spirits. No more flicker on hover.</li>

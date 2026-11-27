@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CWG RPG 1.31 patch notes — Echowrought Games</title>
+<meta name="description" content="CWG RPG 1.31: Lightning holds up in the field, calmer bosses, save and respawn fixes.">
+<meta name="theme-color" content="#0B0F17">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://echowrought.com/patch-notes/1-31/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CWG RPG 1.31 patch notes">
+<meta property="og:description" content="CWG RPG 1.31: Lightning holds up in the field, calmer bosses, save and respawn fixes.">
+<meta property="og:image" content="https://echowrought.com/assets/og.jpg">
+<meta property="og:url" content="https://echowrought.com/patch-notes/1-31/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+<!-- Reusable vector mark (Citadel Seal) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="citadel" viewBox="0 0 100 100">
+    <g fill="none" stroke="#C9A66B"><circle cx="50" cy="50" r="46" stroke-width="2.4"/><circle cx="50" cy="50" r="42" stroke-width=".9" opacity=".6"/><path d="M13 60 A38 38 0 0 1 87 60" stroke-width="1.2"/><path d="M27 58 A26 26 0 0 1 73 58" stroke-width=".9" opacity=".6"/></g>
+    <path d="M12 66 L21 61.5 L22.5 55 L25.5 60 L28.5 51 L31.5 58 L35 45 L38.5 55.5 L42 37 L44.8 52 L47.2 28 L50 14 L52.8 28 L55.2 52 L58 37 L61.5 55.5 L65 45 L68.5 58 L71.5 51 L74.5 60 L77.5 55 L79 61.5 L88 66 L50 62.5 Z" fill="#C9A66B"/>
+    <path d="M12 70 Q40 70.5 50 92 Q60 70.5 88 70 Q60 74.5 50 84.5 Q40 74.5 12 70 Z" fill="#C9A66B"/>
+    <path d="M50 64.5 L51.5 69.5 L56.5 71 L51.5 72.5 L50 77.5 L48.5 72.5 L43.5 71 L48.5 69.5 Z" fill="#C9A66B"/>
+    <path d="M22 31 L23 34 L26 35 L23 36 L22 39 L21 36 L18 35 L21 34 Z M78 31 L79 34 L82 35 L79 36 L78 39 L77 36 L74 35 L77 34 Z" fill="#C9A66B" opacity=".85"/>
+    <path d="M50 2 L51.8 10.2 L58 12 L51.8 13.8 L50 22 L48.2 13.8 L42 12 L48.2 10.2 Z" fill="#C9BBF5"/>
+  </symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/></g></symbol>
+</svg>
+
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main">
+    <a class="brand" href="/#top">
+      <svg width="40" height="40" aria-hidden="true"><use href="#citadel"/></svg>
+      <span class="brand-text"><span class="brand-name">ECHOWROUGHT</span><span class="brand-sub">GAMES</span></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/#worlds">Games</a>
+      <a href="/#studio">Studio</a>
+      <a href="/chronicle/">Chronicle</a>
+      <a href="/#community">Community</a>
+      <a class="btn btn-gold btn-sm" href="https://discord.gg/Z5Pf8exufw" rel="noopener">
+        <svg width="18" height="18" aria-hidden="true"><use href="#i-chat"/></svg>Join Discord</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="article-hero pn-hero-band">
+    <div class="wrap">
+      <p class="article-meta"><span>November 2026</span><span class="tag">Patch notes</span></p>
+      <h1>CWG RPG 1.31</h1>
+      <p class="tagline" style="margin:0">The first patch after launch. Thank you for every report.</p>
+    </div>
+  </section>
+  <div class="wrap pn-layout">
+    <nav class="pn-nav" aria-label="Patch note sections">
+          <a href="#heroes">Heroes</a>
+          <a href="#bosses">Bosses</a>
+          <a href="#saves">Saves</a>
+          <a href="#fixes">Bug Fixes</a>
+    </nav>
+    <div class="pn-body">
+      <p class="pn-note">Same model pack as 1.30: only the map is new. See also the <a href="/patch-notes/1-30/">1.30 patch notes</a>.</p>
+
+      <section class="pn-section" id="heroes">
+        <h2>Heroes</h2>
+        <ul class="pn-list">
+          <li><b>Lightning</b>: new passive, <b>Storm Skin</b>, on every tier. He takes 15% less damage, and every enemy his attacks and bolts hit heals him 0.2% of max HP (up to 0.6% a second). It shows on his status bar.</li>
+          <li><b>White King</b>: Peter's Firmament lasts the full 10 seconds its tooltip says (it ended after 8). Same total healing.</li>
+        </ul>
+      </section>
+
+      <section class="pn-section" id="bosses">
+        <h2>Bosses</h2>
+        <ul class="pn-list">
+          <li>Bosses in ticket dungeons and farming areas no longer hunt you across their whole area. They fight whoever comes to them, and still go home if dragged out: Sereina, Karabaz, Storm-Ape King, Varkan, Avalon, Tyrannorex, the Yaksha King, Arcadiel, Inorex, Leviathan Melvillei, Strak, Ganesha and Morkazar.</li>
+          <li>Field monsters that appear when you first arrive respawn again: Metatron X, Charging Juggernaut, Colossus 77, Ground Zero's infested, Kradin, Valgram, Arcanion and the ticket dungeon mobs.</li>
+        </ul>
+      </section>
+
+      <section class="pn-section" id="saves">
+        <h2>Saves</h2>
+        <ul class="pn-list">
+          <li>Wearing a title no longer sends your saves to a different file. Anything saved while a title was on is found and restored the first time you start 1.31: the further-along copy of each hero comes back, and your account and Collection are merged. You'll get a message if anything was restored.</li>
+        </ul>
+      </section>
+
+      <section class="pn-section" id="fixes">
+        <h2>Bug Fixes</h2>
+        <ul class="pn-list">
+          <li>The DPS meter shows players' BattleTags, not their titles.</li>
+          <li>Pet auras (Tigrath, Shuriman, Kain, Lumiel) and the Black Scale Blessing no longer show up as buttons on your hero.</li>
+          <li>A hero stuck in the black space outside the world is brought back to town.</li>
+        </ul>
+      </section>
+      <div class="article-foot">
+        <a class="back-link" href="/chronicle/">← All Chronicle entries</a>
+        <a class="back-link" href="https://discord.gg/Z5Pf8exufw" rel="noopener">Talk about it on Discord →</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="brand" href="/#top">
+        <svg width="44" height="44" aria-hidden="true"><use href="#citadel"/></svg>
+        <span class="brand-text"><span class="brand-name" style="font-size:18px">ECHOWROUGHT</span><span class="brand-sub">GAMES</span></span>
+      </a>
+      <div class="footer-cols">
+        <div><span class="head">Games</span><a href="https://cwg.echowrought.com/">CWG RPG</a><a href="/#worlds">Upcoming</a></div>
+        <div><span class="head">Studio</span><a href="/#studio">About</a><a href="/chronicle/">Chronicle</a></div>
+        <div><span class="head">Community</span><a href="https://discord.gg/Z5Pf8exufw" rel="noopener">Discord</a><a href="https://cwg.echowrought.com/">CWG hub</a><a href="/immortalized/">The Immortalized</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Echowrought Games · echowrought.com</span>
+      <span>Warcraft III is a trademark of Blizzard Entertainment. CWG RPG is a fan-made custom map, not affiliated with or endorsed by Blizzard.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js" defer></script>
+</body>
+</html>
