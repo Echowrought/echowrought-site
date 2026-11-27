@@ -55,7 +55,7 @@
 <main>
   <section class="article-hero pn-hero-band">
     <div class="wrap">
-      <p class="article-meta"><span>November 2026</span><span class="tag">Patch notes</span><span class="tag tag-test">In testing</span></p>
+      <p class="article-meta"><span>November 2026</span><span class="tag">Patch notes</span><span class="tag">Released</span></p>
       <h1>CWG RPG 1.30</h1>
       <p class="tagline" style="margin:0">The Lua update. Three weeks, 793 commits, and one very tired keyboard.</p>
     </div>
@@ -73,7 +73,7 @@
           <a href="#fixes">Bug Fixes</a>
     </nav>
     <div class="pn-body">
-      <p class="pn-note">1.30 is in testing. These notes may still change before release.</p>
+      <p class="pn-note">Newer: <a href="/patch-notes/1-31/">CWG RPG 1.31 patch notes</a>.</p>
 
       <section class="pn-section" id="general">
         <h2>General</h2>
@@ -85,6 +85,7 @@
           <li>All remaining Korean text translated. Big numbers read as K / M / B.</li>
           <li>Names borrowed from other games and shows are replaced with names from our own world. Your saves and chat commands don't change.</li>
           <li>New loading screen, character select backdrop, lobby text and map preview.</li>
+          <li>The game menu, the Discord button and the lobby now point to Echowrought Games, echowrought.com and our Discord.</li>
           <li>The map file is a good deal smaller.</li>
         </ul>
       </section>
@@ -98,6 +99,10 @@
           <li>Every hero gets one mechanic that's theirs alone (see below).</li>
           <li>Casting never costs you damage. Stop auto-attacking out of fear.</li>
           <li>Full balance pass. Heroes were measured against real bosses, then tuned to their role. Some went up, a few came down, nobody got deleted.</li>
+          <li>Tier 3 is scored twice: how fast you kill a boss and how fast you clear a pack. Every hero has a target for each, set by role. Tanks and supports trade a little damage for what they bring. Nobody is bad at clearing alone. A donation hero never loses to its free counterpart at either.</li>
+          <li>Every tier 3 hero gets a <b>verb</b>: a new thing to do with buttons you already have. Details per hero below.</li>
+          <li>Every tier 3 hero can move: the lowest-cooldown dash or blink sits on <b>D</b>. Three heroes got a new one.</li>
+          <li>Each hero's <span class="pn-num">Damage vs live</span> line lists what each skill now deals compared to the live version (x1.50 = 50% more). Skills not listed are unchanged. Basic attacks, elements, Potential and items were not touched.</li>
           <li>Every damage number in every skill tooltip checked against the actual code, and they follow your hero's current form.</li>
           <li>Blinks reach 1000 range.</li>
           <li>Elements, the Nature element and Potential hit the same on every hero form.</li>
@@ -112,6 +117,9 @@
               <li>New: <b>Release</b> on command. Full Mana lights the button; let it go yourself for full strength.</li>
               <li>Spears now fly to the target instead of wherever they felt like.</li>
               <li>Rune of Abyss is wired up. It does things now.</li>
+              <li>Tier 3: <b>Afterimage Spears</b>. When Release fires, every Black-Wing Step afterimage from the last 10 s throws a spear at the nearest enemy (AGI x40). While they stand, they echo his spear procs onto another enemy for 120%.</li>
+              <li>Release forms: <b>Resonance</b>. Abyssal Strike, Bolt and Storm hit the same target again for 40%.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Afterimage, Null Flash, Spear of Black Lightning x0.50, passives x0.35. Tier 2: passives x0.57, the rest x0.85. Tier 3: passives x0.55, the rest x0.82. Resonance pays for it.</span></li>
               </ul>
             </div>
           </div>
@@ -121,6 +129,7 @@
               <h4>Annihilation</h4>
               <ul class="pn-list">
               <li>New: <b>Overheat</b>.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Steel Barrage, Goliath, Dual Barrel x0.66, passives x0.35. Tier 2: Thor, Dominator Fortress, Afterglow, Iron and Flame x0.94, passives x0.35. Tier 3: Valkyon Bombardment, Levatein, Iron and Flame x1.33, Afterglow x1.06.</span></li>
               </ul>
             </div>
           </div>
@@ -130,9 +139,12 @@
               <h4>Aran</h4>
               <ul class="pn-list">
               <li>Role: the mobile tank.</li>
-              <li>New: <b>Terra Reflect Wall</b>. 6 s, 15 s cooldown. Retaliates for STR x35, and no single hit can take more than 35% of your max HP while it stands.</li>
+              <li>New: <b>Terra Reflect Wall</b>. 6 s, 18 s cooldown. Retaliates for STR x35, and no single hit can take more than 35% of your max HP while it stands.</li>
               <li>Earthfall 0.78 → 0.39.</li>
               <li>The wall no longer eats your frame rate.</li>
+              <li>Tier 3 attacks every 1.0 s (was 1.6). Earth Wave: 20% of attacks, STR x30 (was every attack, x5). Crust Collapse 20%, x35 (was 10%, x20). Core Resonance x40 (was x30). Grand Core Resonance x15 per hit for 7 hits, and stuns up to 12 enemies for 1 s.</li>
+              <li>Leyline stacks cap at 130 (was 200).</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Earth Impact x2.53. Tier 2: passive x0.78. Tier 3: World Crush x0.75, Earthfall and passive x0.49, the rest x0.68. The faster attacks make up the difference. And then some.</span></li>
               </ul>
             </div>
           </div>
@@ -144,6 +156,7 @@
               <li>New: <b>Static Charge</b>.</li>
               <li>Tier 3 casts instantly.</li>
               <li>Azure Rush Thunderfall fixed.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: every skill and Static Charge x0.76, passive x0.35. Tier 2: every skill x1.55. Tier 3: every skill x0.85.</span></li>
               </ul>
             </div>
           </div>
@@ -155,6 +168,7 @@
               <li>New: <b>Kindling</b>.</li>
               <li>Burst restored to how it used to hit.</li>
               <li>Proc chance adjusted.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Flame Dash, Melting Flame, Meteor Strike x2.02. Tier 2: Flare Burn, Grand Inferno, Flame Burst, Falling-Star Barrage x0.87, passives x0.35. Tier 3: Flame Burst x1.70, Hellstar Descent x1.21, Grand Inferno, Flare Burn and Kindling x1.06, passives x0.81.</span></li>
               </ul>
             </div>
           </div>
@@ -166,6 +180,9 @@
               <li>New: <b>Blood Moon Combo</b>.</li>
               <li>Afterimages last 60 s (30 s cooldown).</li>
               <li>Tier 2 textures stay in the map now.</li>
+              <li>Tier 3: <b>Carry the Moon</b>. Half of Godslayer's Blood Moon stacks stay on the same enemy for 6 s.</li>
+              <li>Solar Eclipse moves to D, Red Moon Flash to Q.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Lunar Eclipse, Scarlet Crescent x0.50, passive x0.35. Tier 2: Final Sin, Red Moon Flash, Solar Eclipse x0.50, passives x0.35. Tier 3: Godslayer x2.10.</span></li>
               </ul>
             </div>
           </div>
@@ -176,6 +193,7 @@
               <ul class="pn-list">
               <li>New: <b>Shadow Execution</b>.</li>
               <li>Shadows last 60 s (75 s cooldown).</li>
+              <li><span class="pn-num">Damage vs live. Tier 2: Moonless Black Mirror x1.98. Tier 3: Moonless Black Mirror x4.75, Absolute Domain x4.70, Shadow Execution x3.96, passive x1.75. He was the slowest boss killer in the game. He isn't any more.</span></li>
               </ul>
             </div>
           </div>
@@ -186,6 +204,9 @@
               <ul class="pn-list">
               <li>New: <b>Harvest</b> (All Stats x12).</li>
               <li>Fixed the game crashing when Tier 1 spawns. Strong debuff, wrong target.</li>
+              <li>Tier 3: new <b>Grave Walk</b> on D. Blinks up to 1000 and hits everything within 350 where she rises (All Stats x4).</li>
+              <li>Tier 3: Dominion of Death spreads its damage out past 5 enemies. Harvest takes at most 4 s off Dominion.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Dominion x0.50, passive x0.35. Tier 2: Dominion x1.37. Tier 3: Harvest and Pandemonium Requiem x2.72, Dominion x1.72, passives x1.36 / x0.86.</span></li>
               </ul>
             </div>
           </div>
@@ -196,6 +217,7 @@
               <ul class="pn-list">
               <li>New: <b>Six Chambers</b>. 6 rounds of Crimson Salvo, AGI x8 each.</li>
               <li>His rune loads 8–9 rounds.</li>
+              <li><span class="pn-num">Damage vs live. Tier 2: Crimson Salvo, Crimson Execution Ground x0.81, passives x0.35. Tier 3: Crimson Salvo, Six Chambers x0.90, passives x0.51, Crimson Execution Ground x0.40. It was doing almost half his clearing on its own.</span></li>
               </ul>
             </div>
           </div>
@@ -206,6 +228,8 @@
               <ul class="pn-list">
               <li>New: <b>Dragonheart</b>.</li>
               <li>Roar updated.</li>
+              <li>Crimson Flame STR x10 (was x3), every tier. Tier 3: Infernal Flame STR x28 (was x25), and Red Dragon Scale cuts magic damage taken by 20%.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Firewheel x2.25. Tier 2: Flame Emperor's Strike, Ten-Thousand Blooms, Embers x1.15, the rest x0.71. Tier 3: Flame Dragon Descent, Embers and passives x0.83, Ten-Thousand Blooms x0.80, the rest x0.82.</span></li>
               </ul>
             </div>
           </div>
@@ -214,7 +238,9 @@
             <div>
               <h4>Fallen Emperor</h4>
               <ul class="pn-list">
-              <li>New: <b>Imperial Decree</b> (+50%).</li>
+              <li>New: <b>Imperial Decree</b>. Marks the ground within 700 for 12 s; his skill and proc damage to enemies on it is +50%.</li>
+              <li>Tier 3: kills on the Decree's ground add 2 s and +15% to it (up to +100%), and it hits harder with more enemies around (+1.5% each, up to +15%).</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: passive x0.51. Tier 3: passive x1.11.</span></li>
               </ul>
             </div>
           </div>
@@ -226,6 +252,8 @@
               <li>New: <b>Blood Debt</b>. For 12 s, stores 40% of the damage you take, then bursts for STR x6 plus everything stored and heals you for half.</li>
               <li>Blood Debt gets its own painted icon.</li>
               <li>Rune and Phantasma back to their old numbers.</li>
+              <li>Tier 3: <b>Collect the Debt</b>. If his attacks stayed on one enemy for the whole 12 s, Blood Debt hits it 2 more times.</li>
+              <li><span class="pn-num">Damage vs live. Tier 3: Blood Debt, Feast of Ruin, Crimson Maelstrom x0.79, passives x0.35.</span></li>
               </ul>
             </div>
           </div>
@@ -238,6 +266,7 @@
               <li>Full-Mana signature burst: Absolute Glacial Thunder / Glacial Hymn.</li>
               <li>His rune was wired to Galeheart's proc (and hers to his). Neither ever worked. Untangled.</li>
               <li>Heavenly Snow raises the Chill cap to 13–15.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Frost Sword Dance, Frozen Severing Strike x1.70. Tier 3: every skill and Shatter x1.86.</span></li>
               </ul>
             </div>
           </div>
@@ -248,6 +277,9 @@
               <ul class="pn-list">
               <li>Full-Mana signature burst: Aeolos Tempest / Skyfall Meteor Rain.</li>
               <li>Rune fixed (see Frostveil, above) and hits harder.</li>
+              <li>Tier 3: <b>Tailwind</b>. Her dashes leave a wind trail for 4 s. Attacks on enemies near it send a gust into the enemies around them (50% of the hit).</li>
+              <li>Lingering Wind moves to D, Stormbloom to E.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Breath of Wind, Meteor Shower x2.37. Tier 2: passive x0.35. Tier 3: Aeolos Tempest, Storm Piercing x0.67, passives x0.40.</span></li>
               </ul>
             </div>
           </div>
@@ -257,6 +289,8 @@
               <h4>Ghost Soul</h4>
               <ul class="pn-list">
               <li>New: <b>Soul Brand</b>. Marks a target for 12 s, then detonates for 15% of the damage your side dealt to it. Double on bosses.</li>
+              <li>Tier 3: <b>Passing Brand</b>. A branded enemy that dies hands the brand, and everything it stored, to the nearest enemy within 900.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: passives x0.45. Tier 3: Netherblade Grave x1.49, Netherstep x1.38, the rest x1.11.</span></li>
               </ul>
             </div>
           </div>
@@ -267,6 +301,7 @@
               <ul class="pn-list">
               <li>New: <b>Treasury Ledger</b>. 1 gold per attack, 2 at full Mana, up to 100.</li>
               <li>His ultimate gains +3% per gold in the Ledger. Spend wisely, or don't.</li>
+              <li><span class="pn-num">Damage vs live. Tier 2: Golden Gate of the End x6.00. Tier 3: Gate of Babylon and Enuma Elish x3.35, passives x1.08.</span></li>
               </ul>
             </div>
           </div>
@@ -278,6 +313,8 @@
               <li>New: <b>Beacon</b>.</li>
               <li>Full-Mana signature burst: Holy Crusade, now on a 30 s cooldown.</li>
               <li>Burst and Tier 3 Genesis updated.</li>
+              <li>Tier 3: Heavenly Cross carries her to where it lands, beside the ally it beacons. It sits on D.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Golden Healing Rain, Radiance of Light x2.52. Tier 2: Lightbringer, Holy Grail, Horizon's End x1.25. Tier 3: Holy Crusade, Metatron, Lightbringer, Holy Grail x3.90.</span></li>
               </ul>
             </div>
           </div>
@@ -290,8 +327,10 @@
               <li>Full-Mana signature burst: Stellar Convergence.</li>
               <li>Procs at 15%.</li>
               <li>Preta Path: getting hit fills 15% of your Mana bar, at most once a second.</li>
-              <li>Tier 1 and Tier 2 damage up.</li>
-              </ul>
+              <li>Tier 3: new <b>Heavenward Step</b> on D. Blinks up to 1000 and lands as a small gravity well (INT x6 within 400, pulls the small ones in).</li>
+              <li>Tier 3: <b>Gravity Well</b>. Every enemy his pull gathers past the first adds 5% damage for 8 s, up to +50%.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Universal Pull, Heaven's Repulsion, Gravity Reversal x1.39. Tier 2: Stellar Convergence, True Heaven's Repulsion, Planetary Devastation, Heavenfall Reversal x0.66, passives x0.35. Tier 3: True Heaven's Repulsion x1.35, passives x0.76 / x0.64.</span></li>
+                            </ul>
             </div>
           </div>
           <div class="pn-hero">
@@ -300,6 +339,9 @@
               <h4>Lightning</h4>
               <ul class="pn-list">
               <li>New: <b>Storm Chain</b>. At most 2 jumps a second.</li>
+              <li>Tier 3: Storm Chain works on his basic attacks and bolt procs too, jumping to 5 more enemies at 75%.</li>
+              <li>Lightning Edge moves to D.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Azure Lightning Flash, Clear-Sky Thunderfall, Lightning Edge x0.86, passives x0.35. Tier 2: passives x0.42. Tier 3: Blue Heaven, Thunderstrike, Azure Lance x1.66, passives x1.30, Raijin Storm Avatar and Amanomagayumi x1.28.</span></li>
               </ul>
             </div>
           </div>
@@ -311,6 +353,8 @@
               <li>New: <b>Mirror Exchange</b>.</li>
               <li>Blink moved to D, Red Starfall to E.</li>
               <li>Her Gt5 proc scales with INT.</li>
+              <li>Tier 3: <b>Eye of Oblivion</b>. His hits mark enemies for 8 s. 4.2% of what his black flame does to one marked enemy is shared with every other. Black Sun Flame detonates every mark within 1500 (INT x15 each).</li>
+              <li><span class="pn-num">Damage vs live. Passives: Tier 1 x0.42, Tier 2 x0.46, Tier 3 x0.69.</span></li>
               </ul>
             </div>
           </div>
@@ -321,6 +365,8 @@
               <ul class="pn-list">
               <li>New: <b>Rootwall</b>.</li>
               <li>Magic Immunity icon now leaves when the passive does.</li>
+              <li>Tier 3: <b>Rooted</b>. Hold one spot for 3 s and he roots: Adamantine Fist and Rootwall hit three times as hard and he deals 30% more to bosses. Step away and it ends.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Shrine Gate, Verdant Star, World-Tree Strike x0.66, passive x0.35. Tier 3: every skill x1.05 to x1.10.</span></li>
               </ul>
             </div>
           </div>
@@ -330,6 +376,8 @@
               <h4>Soulweaver</h4>
               <ul class="pn-list">
               <li>New tier art and icons.</li>
+              <li>Tier 3: <b>Black Threads</b>. Banquet of Black Threads stitches up to 5 enemies for 8 s; 30% of what her puppet arts do to one is copied to the others.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: passives x0.73. Tier 2: Banquet, Puppet Chorus, Puppet Theater x0.39, passives x0.35. Tier 3: passives x0.69.</span></li>
               </ul>
             </div>
           </div>
@@ -339,6 +387,8 @@
               <h4>Sword Saint</h4>
               <ul class="pn-list">
               <li>New: <b>Iaido</b>.</li>
+              <li>Tier 3: <b>Planted Swords</b>. Sword-Sea swords stay planted for 6 s and cut everything in them once a second (AGI x40). Azure Rush through them launches them along your path (AGI x25).</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: passives x0.54. Tier 2: passives x0.87. Tier 3: Sword-Sea x1.95, Azure Rush and Iaido x1.30.</span></li>
               </ul>
             </div>
           </div>
@@ -349,6 +399,8 @@
               <ul class="pn-list">
               <li>New: <b>Tide Cycle</b>.</li>
               <li>Tier 3 Mana set to 100.</li>
+              <li>Tier 3: <b>Undertow</b>. Skill hits during high tide stack waves on an enemy (up to 20). When the tide turns, they crash for INT x7 each.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Blue Downpour, Blue Vortex x1.47. Tier 2: Sea Resonance, Blue Torrent, Raging Tide x0.88, passive x0.35. Tier 3: Blue-Star Aria, Sea-Hymn Serenade, Blue Torrent, Raging Tide x1.96.</span></li>
               </ul>
             </div>
           </div>
@@ -359,6 +411,8 @@
               <ul class="pn-list">
               <li>New: <b>Contagion</b>.</li>
               <li>Tier 1 damage adjusted.</li>
+              <li>Tier 3: Contagion spreads to 2 enemies (3 below tier 3). She leans toward clearing now.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: Liberation, Resonance x0.72. Tier 3: Arcvenenos, Venomous Rite and passives x1.87, Venom Dash, Emerald Drizzle, Fatal Fragrance and the Contagion burst x1.56, Tri-Aroma x0.50, the rest x1.10.</span></li>
               </ul>
             </div>
           </div>
@@ -371,6 +425,7 @@
               <li>Damage x1.2.</li>
               <li>Tier 3 Seraphiel / Ramiel: 15% chance, 850 range, instant cast, guards himself.</li>
               <li>Knight's Guard shield is spell-sized again (600 radius) and gold.</li>
+              <li><span class="pn-num">Damage vs live. Tier 1: passive x0.60. Tier 2: passives x0.83. Tier 3: Judgment's Trajectory and Sanctuary Bloom x2.10, passives x1.12 / x0.80, Banner Command x0.31 (the flag's echo was carrying her boss damage).</span></li>
               </ul>
             </div>
           </div>
@@ -385,14 +440,31 @@
           <li>Ruinwing and Varthion raids.</li>
           <li>The Twilight Brood raid, with Nyxareth and company.</li>
           <li>The Abraham raid. Bring friends. Bring more friends.</li>
-          <li>Hell Expedition, with bosses that scale with each stage.</li>
+          <li>Noah's raid. Drops Noah's Essence for the last gear line.</li>
+          <li>Hell Expedition is now <b>The Infernal Descent</b>. See New Systems.</li>
+        </ul>
+        <h3 class="pn-sub">Raid roles</h3>
+        <ul class="pn-list">
+          <li>Raid crafts now carry a raid stat: <b>Bulwark</b> on STR, <b>Ward</b> on INT, <b>Precision</b> on AGI. Gloves get it first, then the accessory, then the weapon. Each enhancement level adds +1.</li>
+          <li>Ganesha, Primigenius, Leviathan and every Primordial raid boss now go after the Guardian with the most Bulwark. Guardians: Aran, Frenzy, White King and Nature. (The Record lists one more, but she hasn't answered the summons yet.)</li>
+          <li>Their attacks stack <b>Rend</b>: +20% per hit, up to 10 stacks, gone 6 s after the last one.</li>
+          <li>Bulwark cuts their attack damage by up to 70%: full effect at 30 against the Ancient three, 50 to 95 in the Primordial Realm. Bring a tank. Or a lot of potions.</li>
+          <li>Ward cuts their pattern damage by up to 20%, for you and allies within 400.</li>
+          <li>Precision adds up to 20% damage against them, doubled while they stagger.</li>
+          <li>Aeonvar now calls <b>Sundering Blow</b> and turns on whoever isn't tanking. His <b>Frozen Moment</b> freezes one hero: an ally has 4 s to stand in the green circle for 1 s, or that hero is erased. Bring a friend.</li>
+          <li>Taunts now interrupt a boss mid-cast: the move is cancelled and the boss staggers for 1.5 s. Moves triggered at health thresholds can't be interrupted.</li>
+          <li>Boss moves call themselves out by name over the boss before they land, instead of filling your chat.</li>
+          <li>Your Bulwark, Ward and Precision are on the Character Card.</li>
         </ul>
         <h3 class="pn-sub">Every boss fight</h3>
         <ul class="pn-list">
           <li>One system now runs every pattern boss. One pattern at a time, cast from up to 1,500 away, no more walking over to hit you.</li>
           <li>Ground telegraphs on every attack, with a fill that shows when it lands. <span class="t-red">Red</span> hurts. <span class="t-green">Green</span> is safe. <span class="t-purple">Purple</span> kills.</li>
           <li>Every cast warns first, and the warning text says what actually happens.</li>
+          <li>Staggered attacks warn one hit at a time. When a pattern drops several circles, each one appears as late as the first did. No more reading the third hit three seconds early.</li>
           <li>Raid bosses blink home when dragged out of their zone.</li>
+          <li>Bosses only take damage from heroes standing inside their zone. Casting over the wall now shows <b>Out of reach</b> and does nothing. We saw you.</li>
+          <li>Boss indicators are new from top to bottom: lines and cones as well as circles, drawn on the arena floor (not under it), at each attack's real size.</li>
           <li>Arcadiel, Myrkalis and Aeonvar reset HP and Mana when the raid disengages.</li>
         </ul>
         <h3 class="pn-sub">Specific bosses</h3>
@@ -410,19 +482,37 @@
       <section class="pn-section" id="world">
         <h2>World &amp; Gameplay</h2>
         <ul class="pn-list">
+          <li>The world map is completely redesigned. New terrain and a new layout for every realm, with each area walled off as its own zone and black void between them.</li>
           <li>Travel menu: 7 realm tabs and new destinations.</li>
           <li>You can no longer walk, blink or dash across zone borders. Yes, that shortcut. Sorry.</li>
           <li>Field portals to bosses have a rune ring on the ground and the boss's name above it.</li>
           <li>The ghost ships' decks are solid ground now.</li>
           <li>The day/night clock is gone. The sky in these realms hasn't moved since the war ended; the map just stopped pretending.</li>
           <li>Terra's giants and the Black Brood field spawn when you travel there, not when you wander in.</li>
-          <li>Event zone: Sunfang and Poporing have moved in. Sunfang drops Sunfang's Ward (+2 to +10).</li>
+          <li>Event zone: Woolball has retired. <b>Sunfang</b> and <b>Poporing</b> have moved in. Sunfang drops Sunfang's Ward (+2 to +10). Its fragments only drop while the event is on. Woolball's items still count in your Collection.</li>
+          <li>Launch events: Awakening promotion chance x2, Combination and Enhancement success x2, Party Dungeon Contribution x2 and bonus Gold, and Bestiary record chance x2. The ability, sailing and attribute events are resting for now.</li>
+          <li><code>-event</code> lists every event that's on right now, and what's off.</li>
+        </ul>
+        <h3 class="pn-sub">Awakening</h3>
+        <ul class="pn-list">
+          <li>Awakening promotions now have pity. Every failed promotion kill adds +0.05% to that tier's chance until you promote, then it starts over at the next tier.</li>
+          <li>Your current pity shows on the failure message and in <code>-awakening</code>. It's saved per hero.</li>
+          <li>Godhood used to take about 100 Strak kills on average. Now it's about 41, and it always ends eventually. Strak has been informed. Strak is not thrilled.</li>
+          <li>Four new Awakening tiers past Apocalypse: Eclipse (Gorrhakul, 1.5%), Timeless (Aeonvar, 1%), Ruin (Ruinwing, 0.75%) and Abyssal (Thalassia, 0.5%). Pity works on them too.</li>
+          <li>The Max HP Awakening path no longer stops growing at Godhood. Dawn, Ancient, Genesis, Origin and Apocalypse now give +60M, +65M, +75M, +85M and +100M Max HP.</li>
+        </ul>
+        <h3 class="pn-sub">Enhancement</h3>
+        <ul class="pn-list">
+          <li>A failed Enhancement Stone on a +5 attempt now leaves behind 1 Enhancement Stone Fragment.</li>
+          <li>Fragments still combine at 3,000 into a Perfect Enhancement Stone, so long dry streaks on the +5 step finally pay a little something back.</li>
+          <li>Only the +5 step drops dust. Your lucky friend gets nothing, and that's the point.</li>
+          <li>Fragments go to your storage, the same as party dungeon fragments.</li>
         </ul>
         <h3 class="pn-sub">The Hollow</h3>
         <ul class="pn-list">
-          <li>Hollow Night has ended. The Hollowbound and Elites stayed anyway.</li>
-          <li>Slain Colossal and Named bosses have a 2% chance to rise again as <b>Hollow-touched</b>: double health, 1.5x damage, and the Hollow's Mark (a sigil that bursts for 25% max HP; never lethal).</li>
-          <li>Hollow-touched bosses drop one guaranteed item from their own table, plus lumber for everyone nearby, and get their own Bestiary entry.</li>
+          <li>Hollow Night has ended. The Hollowbound and Elites stayed anyway, but far fewer of them: they rise with the night (about one every 6 minutes on a busy farm), less at dawn and rarely by day. The Embers, the free tickets and the Red Reaper's blessings went with the holiday.</li>
+          <li>Slain Colossal, Named and field raid bosses have a 2% chance to rise again as <b>Hollow-touched</b>: double health, 1.5x damage, and the Hollow's Mark (a sigil that bursts for 25% max HP; never lethal).</li>
+          <li>Hollow-touched bosses roll their own drop table at double chance, give lumber to everyone nearby, and get their own Bestiary entry.</li>
         </ul>
       </section>
 
@@ -433,6 +523,7 @@
           <li>Raid loot rolls for everyone in range. New setting: Solo (straight to your bags) or Group (held for 60 s).</li>
           <li>One roll per item per kill, and the chances match the drop-table panel. The drop-table button lists every drop.</li>
           <li>Escalating odds: each kill adds +0.5% to items above 1%, shown on every boss from the first kill.</li>
+          <li>One rule list for every drop. Event items and a few fixed-chance items never escalate, and the drop panel tells you which.</li>
           <li>Anya never takes an item held for someone else, and auto-pickup works with her again.</li>
           <li>Rare wings from the Elemental Spirit rare mobs: Hollowfeather, Bloodglass, Starless Veil and Covenant Dawnwings.</li>
         </ul>
@@ -444,6 +535,8 @@
           <li>Elemental Resonance goes to +60.</li>
           <li>Boss Subjugation Chests, and a crafting chain we're not going to spoil.</li>
           <li>Attack speed can go past +400%.</li>
+          <li>Stat book prices follow the gold curve: the 25M and 30M shops cost 25% more, the 35M shop 4x and the 40M shop about 2.7x. The zones up there pay four times the gold of everywhere below, and the books didn't keep up.</li>
+          <li>Tier 2 catch-up bonus: +25% Fortune, Glory and Prosperity on every tier 2 hero.</li>
         </ul>
         <h3 class="pn-sub">Tidying up</h3>
         <ul class="pn-list">
@@ -452,11 +545,41 @@
           <li>Enhancement reads +1, +2, +3 with no gaps, and the success message names the right level.</li>
           <li>Every item the map can make can be saved.</li>
           <li>Hollow Lantern stacks stop at level 5 (some of you saw 24).</li>
+          <li><code>-tidy</code> merges your stacks, then empties your bags into storage, like with like: equipment together, tickets and stones together, [Hidden] items together. Whatever doesn't fit stays put and you're told.</li>
+          <li>Pets only carry gear that can be saved. An Enhancement Stone on a pet used to block every save.</li>
+          <li>Abyss gear adds +5% boss damage.</li>
         </ul>
       </section>
 
       <section class="pn-section" id="systems">
         <h2>New Systems</h2>
+        <h3 class="pn-sub">Gateways</h3>
+        <ul class="pn-list">
+          <li>New <b>Gateways</b> panel on the HUD with three tabs: Party Dungeons, the Spire of Ascension and The Infernal Descent.</li>
+          <li>Party Dungeons: tickets, clear titles and Contribution engravings, all in one place.</li>
+          <li>Each tab shows what it needs, how far you are, who's in, and a Join button.</li>
+        </ul>
+        <h3 class="pn-sub">Spire of Ascension</h3>
+        <ul class="pn-list">
+          <li>New: an endless wave arena for one party of up to six. Opens at 19M main stat.</li>
+          <li>Ten-wave cycles that never end. Every tenth wave brings a boss. Enemies hit 1% harder per wave up to wave 100, then 0.5% per wave forever.</li>
+          <li>Waves pay <b>Tower Essence</b> and Lumber, plus a one-time bonus at waves 50, 100, 150 and every 100 after that. Your deepest wave is saved.</li>
+          <li>Tower Essence rolls <b>seven permanent rows</b> that work everywhere: boss damage, monster damage, magic defense, skill crit, skill damage, a stun pulse and lifesteal. 13 grades, from Normal to Godhood (1 in 800,000). Lock, switch off and auto-roll.</li>
+        </ul>
+        <h3 class="pn-sub">The Infernal Descent</h3>
+        <ul class="pn-list">
+          <li>Hell Expedition, rebuilt. A party of up to six goes down floor after floor, and there is no bottom. Opens at 30M main stat.</li>
+          <li>Monsters don't get more health as you go down. They hit harder: +1% per floor to floor 100, then +0.5% per floor with no cap.</li>
+          <li>A Shard gatekeeper every 10 floors, each with a 1% Boss Rune drop.</li>
+          <li>Every floor cleared rolls Rune Stones for everyone (7.3%, +1% per extra hero). Deeper floors can pay more than one. Your deepest floor is saved.</li>
+        </ul>
+        <h3 class="pn-sub">The Core</h3>
+        <ul class="pn-list">
+          <li>New late-game system at 30M main stat. Five slots rolled with Lumber: STR, AGI, INT, All Stats, All Stats Bonus Damage, Crit or Smash.</li>
+          <li>Grades climb all the way to Divinity. Lock lines, auto-roll to a grade, rates on <code>-corerates</code>.</li>
+          <li>Smash is a whole new hit: 1–10% chance by grade to hit for 45% to 300% of All Stats. Each type fills at most two slots, and only one type can be doubled.</li>
+          <li>Slots 4 and 5 are a supporter unlock.</li>
+        </ul>
         <h3 class="pn-sub">Record of Deeds</h3>
         <ul class="pn-list">
           <li>Earn Deeds in every realm. Higher realms pay a lot more.</li>
@@ -466,25 +589,33 @@
         </ul>
         <h3 class="pn-sub">The Collection</h3>
         <ul class="pn-list">
+          <li>Brand new. Everything you've collected, kept on your account with its bonuses, on one panel from the HUD.</li>
           <li>One painted panel, 8 tabs: wings, auras, pets, bags, Tailed Spirits and more.</li>
           <li>Bags collect themselves, account-wide. Change Look lets any bag wear a look you've collected.</li>
+          <li>Our beta testers find a Pikachu bag in their Collection. Thank you.</li>
           <li>Every entry says where it comes from.</li>
           <li>Hero effects count as auras: +3% aura damage each. The full set is any 14 of 19.</li>
           <li>Skins tab is in. Skins are coming in a later update.</li>
         </ul>
         <h3 class="pn-sub">Achievements</h3>
         <ul class="pn-list">
-          <li>Achievements belong to your account and count back to your first game.</li>
+          <li>Achievements belong to your account and count back to your first game. Progress counts on every character and is saved with the account.</li>
+          <li>New achievements for the Hollow-touched record, Spire of Ascension waves and Infernal Descent floors.</li>
           <li>40 monster-family achievements, raid challenges (Deathless, Few Hands), and Tier II / Tier III victories for every raid boss.</li>
           <li>Achievements for huge roll counts carry a tiny bit of pity. We're not monsters.</li>
         </ul>
         <h3 class="pn-sub">Also new</h3>
         <ul class="pn-list">
           <li>Bestiary: 12 new bosses, a milestone every 8%, one realm per page.</li>
-          <li>Character Card: base and bonus stats, elements, every defence source, Familiars page.</li>
-          <li>The Core, Sailing Potential (+1 to +5), an 11th storage bag, companions and riding mounts.</li>
+          <li><b>Character Card</b>, brand new: base and bonus stats, elements, every defence source, your Bulwark, Ward and Precision, titles, rates and links, and a Familiars page.</li>
+          <li>Sailing Potential (+1 to +5), an 11th storage bag, companions and riding mounts.</li>
           <li>Beginner and Otherworld quests.</li>
           <li>Pet buffs reach their owner anywhere on the map, and every pet effect has a visible button.</li>
+        </ul>
+        <h3 class="pn-sub">Rites</h3>
+        <ul class="pn-list">
+          <li>Some things in these realms were never written down, and we're not writing them down here either.</li>
+          <li>If you find one, your Character Card will remember. It won't tell you what you found.</li>
         </ul>
       </section>
 
@@ -492,7 +623,8 @@
         <h2>Interface</h2>
         <ul class="pn-list">
           <li>Added a DPS meter in-game. On the Training Dummy it starts on your first hit and shows DPS, total, biggest hit and your top skills. On raid bosses it ranks everyone's damage, DPS and share. Settle your arguments.</li>
-          <li>Settings: your own Effects (Full / Reduced) and Screen Shake. Host keeps Performance Mode. Kill-reward text is off unless you want it.</li>
+          <li>New Settings panel: your own Effects (Full / Reduced), Screen Shake, Damage Numbers and loot mode. Host keeps Performance Mode. Kill-reward text is off unless you want it.</li>
+          <li><code>-commands</code> and <code>-systems</code> are rewritten for this version. Full descriptions are in the F9 quest log.</li>
           <li>Status bar: 13 buff slots, temporary effects first, one slot each for Companions and Tailed Spirits. No more flicker on hover.</li>
           <li>Panels open from HUD buttons, not chat commands. Esc closes every menu.</li>
           <li>Monster and boss names sit under the portrait, like heroes'.</li>
@@ -505,11 +637,16 @@
       <section class="pn-section" id="stability">
         <h2>Saves &amp; Stability</h2>
         <ul class="pn-list">
+          <li>Playing several heroes in more than one Warcraft window on one account is safe now. Each window saves its own part of the account and the next game puts it all together, so no window erases what another unlocked. You no longer need to close the others before you save.</li>
+          <li>On the old map, Somnaria and the bosses above her could be skipped. When your old save comes over, gear from Somnaria's tier and above goes back to what you crafted it from (Rapael, Caldrasia and Orserion +5, Leviathan gloves, Azuragon), and those essences are removed. Once per hero; anything you earn in 1.30 is yours.</li>
+          <li><b>Autosave every 10 minutes</b> for everyone, no setting needed. A new character starts autosaving after its first <code>-save</code>.</li>
+          <li>Potential rolls are saved as they happen, one roll every 0.75 s. No rolls while your character can't be saved, so there's nothing to reload and retry.</li>
           <li>Save files are about a third smaller, so they reach everyone faster. <code>-savestatus</code> shows how long yours took.</li>
           <li>If a hero can't load, the game tells you why.</li>
           <li>Loading work moved behind the loading screen, so games settle faster after everyone loads.</li>
           <li>Multiplayer desyncs fixed, including the one from Relic Transcend.</li>
           <li>Panel clicks only act for the player who clicked.</li>
+          <li>Respawning monsters and skill effects are reused instead of made fresh each time, so long games stay smooth.</li>
           <li>Big memory-leak cleanup. One status board was making 19 new objects per player, per second. It has been spoken to.</li>
           <li>Crash fixes: command buttons with nothing selected, status icons on hidden units, the day clock, and more.</li>
           <li>457 doodads that were invisible are back. Walls close their gaps, and the planets are no longer black.</li>
@@ -525,6 +662,8 @@
           <li>Toucan boss damage refreshes by itself.</li>
           <li>The Black Dragon no longer drops Umbrael.</li>
           <li>Tooltips with commas show in full.</li>
+          <li>Shiroa's trading post shows everything she sells, not just the Evolution Stone.</li>
+          <li>Every shopkeeper has a name now. Say hello.</li>
         </ul>
       </section>
       <div class="article-foot">
