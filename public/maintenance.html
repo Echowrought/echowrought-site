@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10120f">
+  <meta name="description" content="CWG Tooling is down for maintenance.">
+  <title>Down for Maintenance! — CWG Tooling</title>
+  <style>
+    :root { color-scheme: dark; --gold: #d7a951; --dim-gold: #79582c; --bone: #e7dcc7; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: clamp(16px, 4vw, 50px);
+      background:
+        radial-gradient(ellipse 55% 45% at 50% 95%, #4b2613 0, transparent 80%),
+        radial-gradient(ellipse 60% 45% at 50% -10%, #222c2c 0, transparent 85%),
+        repeating-linear-gradient(115deg, transparent 0 65px, #ffffff04 66px 67px),
+        #090c0d;
+      color: var(--bone);
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+    .panel {
+      position: relative;
+      isolation: isolate;
+      width: min(100%, 1020px);
+      border: 1px solid #76542c;
+      padding: clamp(9px, 1.5vw, 15px);
+      background: linear-gradient(145deg, #201a14 0%, #090c0c 37%, #17120d 100%);
+      box-shadow: 0 0 0 1px #0a0908, 0 0 0 4px #292016,
+                  0 24px 90px #000d, inset 0 0 22px #000a;
+    }
+    .panel::before, .panel::after {
+      content: ''; position: absolute; width: 28px; height: 28px; z-index: 3;
+      background: linear-gradient(135deg, #ad8347, #47321b 65%, #1b150e);
+      border: 1px solid #b28b50;
+      transform: rotate(45deg);
+      box-shadow: inset 0 1px 2px #e0bd7050, 0 2px 4px #000;
+    }
+    .panel::before { top: -14px; left: -14px; }
+    .panel::after  { bottom: -14px; right: -14px; }
+    .content {
+      overflow: hidden;
+      border: 1px solid #42331f;
+      background: radial-gradient(ellipse at 50% 0%, #31251c, #151311 62%, #0d0e0d 100%);
+      text-align: center;
+    }
+    .eyebrow {
+      display: flex; align-items: center; justify-content: center; gap: 13px;
+      padding: 36px 18px 0;
+      font: 700 11px/1.4 system-ui, sans-serif;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: #b18b59;
+    }
+    .eyebrow::before, .eyebrow::after {
+      content: ''; display: block; width: min(65px, 11vw); height: 1px;
+      background: linear-gradient(90deg, transparent, #85633b);
+    }
+    .eyebrow::after { transform: rotate(180deg); }
+    .tools { width: 23px; height: 23px; fill: none; stroke: #d6ac66; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+    h1 {
+      margin: 22px 18px 8px;
+      color: var(--gold);
+      font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+      line-height: 1.08;
+      letter-spacing: -.035em;
+      font-weight: 800;
+      background: linear-gradient(180deg, #fff0af 0%, #e6bb64 40%, #a86d25 82%, #e2ad55 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 3px 1px #130b05) drop-shadow(0 6px 12px #000b);
+    }
+    .rule {
+      display: flex; align-items: center; gap: 12px;
+      margin: 25px auto 23px; width: min(460px, 72%);
+    }
+    .rule::before, .rule::after { content: ''; height: 1px; flex: 1; background: linear-gradient(90deg, transparent, #96632c); }
+    .rule::after { transform: rotate(180deg); }
+    .rule span { width: 9px; height: 9px; border: 1px solid #ad7139; transform: rotate(45deg); background: #6c2a1d; }
+    .apology {
+      margin: 0 auto 40px;
+      padding: 0 22px;
+      max-width: 860px;
+      color: #e4d8c5;
+      font-size: clamp(1.05rem, 2.15vw, 1.5rem);
+      line-height: 1.55;
+      text-shadow: 0 2px 8px #000;
+    }
+    .scene {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      height: clamp(245px, 30vw, 355px);
+      border-top: 2px solid #624120;
+      border-bottom: 1px solid #52391d;
+      background: #1e2021;
+    }
+    .scene img {
+      display: block;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: 46% 50%;
+    }
+    .scene::before, .scene::after { content: ''; position: absolute; pointer-events: none; inset: 0; }
+    .scene::before {
+      z-index: 1;
+      background: linear-gradient(180deg, #110e0b82, transparent 13%, transparent 68%, #0b0c0db5),
+        linear-gradient(90deg, #0b0c0d65, transparent 23%, transparent 81%, #0b0c0d50);
+    }
+    .scene::after { z-index: 1; box-shadow: inset 0 0 45px #09090990; }
+    .spark {
+      position: absolute; z-index: 2; width: 5px; height: 5px; left: 56%; top: 38%;
+      border-radius: 50%; background: #ffde79;
+      box-shadow: 0 0 8px 2px #ff8b2b;
+      opacity: 0;
+      animation: fly 1.75s ease-out infinite;
+    }
+    .spark.two { left: 58%; top: 35%; animation-delay: .4s; }
+    .spark.three { left: 54%; top: 41%; animation-delay: .95s; }
+    .spark.four { left: 59%; top: 42%; animation-delay: 1.3s; }
+    @keyframes fly {
+      0%, 8% { opacity: 0; transform: translate(0,0) scale(.5); }
+      20% { opacity: 1; }
+      75%,100% { opacity: 0; transform: translate(27px,-49px) scale(0); }
+    }
+    .footer {
+      display: flex; justify-content: center; align-items: center; gap: 12px;
+      min-height: 68px;
+      padding: 15px;
+      font: 700 .72rem/1.4 system-ui, sans-serif;
+      text-transform: uppercase; letter-spacing: .19em;
+      color: #ad8a60;
+    }
+    .working-dot { width: 6px; height: 6px; border-radius: 50%; background: #d79c4b; animation: pulse 1.8s ease-in-out infinite; }
+    .working-dot:nth-child(2) { animation-delay: .3s; }
+    .working-dot:nth-child(3) { animation-delay: .6s; }
+    @keyframes pulse { 0%, 100% { opacity: .25; transform: scale(.75) } 45% { opacity: 1; transform: scale(1.3) } }
+    @media (max-width: 600px) {
+      .eyebrow { padding-top: 29px; letter-spacing: .18em; font-size: 10px; gap: 8px; }
+      h1 { margin-top: 19px; }
+      .rule { margin-top: 19px; margin-bottom: 17px; }
+      .apology { margin-bottom: 31px; }
+      .scene { height: 280px; }
+      .scene img { object-position: 42% 50%; }
+      .spark { left: 60%; }
+      .spark.two { left: 62%; }
+      .spark.three { left: 58%; }
+      .spark.four { left: 63%; }
+      .footer { min-height: 57px; font-size: .65rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .spark, .working-dot { animation: none; }
+      .working-dot { opacity: .8; }
+    }
+  </style>
+</head>
+<body>
+  <main class="panel">
+    <div class="content">
+      <div class="eyebrow">
+        <svg class="tools" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 4 15 15M7 3l3 4-3 3-4-3ZM17 14l4 4-3 3-4-4ZM20 4 4 20M17 3l4 4-4 3-3-3Z"/></svg>
+        <span>CWG Tooling</span>
+      </div>
+      <h1>Down for Maintenance!</h1>
+      <div class="rule" aria-hidden="true"><span></span></div>
+      <p class="apology">The CWG Tooling team apologizes for the inconvenience</p>
+      <div class="scene" role="img" aria-label="A Warcraft III-style orc peon working with a hammer on wooden scaffolding">
+        <img src="/assets/maintenance-peon.webp" alt="" draggable="false">
+        <i class="spark" aria-hidden="true"></i>
+        <i class="spark two" aria-hidden="true"></i>
+        <i class="spark three" aria-hidden="true"></i>
+        <i class="spark four" aria-hidden="true"></i>
+      </div>
+      <div class="footer" aria-label="Maintenance work in progress">
+        <span class="working-dot" aria-hidden="true"></span>
+        <span class="working-dot" aria-hidden="true"></span>
+        <span class="working-dot" aria-hidden="true"></span>
+        <span>Work, work…</span>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
