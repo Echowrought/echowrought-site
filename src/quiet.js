@@ -6,9 +6,10 @@
 // An address matches when sha256(salt + ":" + normalised path) is a key of "h".
 // Anything else gets the site's ordinary 404, untouched.
 //
-// Optional picture: put an image in the KV namespace bound as ECHO_MEDIA under
-// the entry's <id> (with metadata {"type": "image/png"} or similar). It is only
-// ever served from the page's own address, so it has no public path.
+// Optional picture: put an image in the private R2 bucket bound as ECHO_MEDIA,
+// named after the entry's <id> (k01.png, k02.webp, ...). It is only ever served
+// from the page's own address (?v), so it has no public path. The bucket must
+// stay private (no public r2.dev or custom domain).
 
 const MAX_LEN = 48;
 let cachedRaw = null;
@@ -89,11 +90,14 @@ export async function quietPage(request, env, miss) {
 
   if (url.searchParams.has("v")) {
     if (!env.ECHO_MEDIA || !id) return miss;
-    const { value, metadata } = await env.ECHO_MEDIA.getWithMetadata(String(id), { type: "arrayBuffer" });
-    if (!value) return miss;
-    return new Response(request.method === "HEAD" ? null : value, {
-      headers: { ...head, "content-type": (metadata && metadata.type) || "image/png" },
-    });
+    const types = { png: "image/png", webp: "image/webp", jpg: "image/jpeg", jpeg: "image/jpeg", gif: "image/gif" };
+    for (const ext of ["", ...Object.keys(types).map((e) => "." + e)]) {
+      const obj = await env.ECHO_MEDIA.get(String(id) + ext);
+      if (!obj) continue;
+      const type = (obj.httpMetadata && obj.httpMetadata.contentType) || types[ext.slice(1)] || "image/png";
+      return new Response(request.method === "HEAD" ? null : obj.body, { headers: { ...head, "content-type": type } });
+    }
+    return miss;
   }
 
   return new Response(request.method === "HEAD" ? null : pageHtml(line || ""), {

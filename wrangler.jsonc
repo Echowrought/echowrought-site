@@ -14,6 +14,10 @@
   },
   // Keep the `maintenance` value set in the Cloudflare dashboard when deploying.
   "keep_vars": true,
+  // Pictures for the quiet pages: a private R2 bucket (see src/quiet.js).
+  "r2_buckets": [
+    { "binding": "ECHO_MEDIA", "bucket_name": "echo-media" }
+  ],
   // At most 30 not-found lookups a minute per visitor (see src/quiet.js).
   "ratelimits": [
     { "name": "ECHO_LIMIT", "namespace_id": "1001", "simple": { "limit": 30, "period": 60 } }
